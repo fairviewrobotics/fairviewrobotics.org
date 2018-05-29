@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from "react-bootstrap";
+import noScroll from 'no-scroll';
 import BackgroundImage from "../BackgroundImage/BackgroundImage";
 
 import './Gallery.css';
@@ -77,6 +78,10 @@ export default class Gallery extends Component {
       const {src} = this.getCurrentGallery().images[this.state.currentImage];
 
       slideShow = <Slideshow src={src} alt={this.state.currentGallery} onPreviousImage={this.handlePreviousImage} onNextImage={this.handleNextImage} onExit={this.exitSlideshow}/>
+
+      noScroll.on();
+    } else {
+      noScroll.off();
     }
 
     // TODO: extract out of jsx
