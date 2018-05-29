@@ -11,6 +11,7 @@ import About from "./About/About";
 import Calendar from "./Calendar/Calendar";
 import Sponsors from "./Sponsors/Sponsors";
 import Gallery from "./Gallery/Gallery";
+import ScrollToTop from "./ScrollToTop";
 
 import { sponsors, galleries } from "./constants";
 
@@ -66,6 +67,8 @@ class App extends Component {
           <RouteChange onRouteChange={this.handleRouteChange}/>
 
           <Header isCollapsed={!this.state.isMainPage}/>
+
+          <Route component={ScrollToTop} />
 
           <Switch>
             <Route exact path="/" render={() => <Home shuffle weAreItems={weAreItems}/>}/>
