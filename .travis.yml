@@ -7,8 +7,5 @@ install:
 script:
   - npm run build
 
-deploy:
-  provider: surge
-  project: ./build/
-  skip_cleanup: true
-  on: master
+after_success:
+  - surge --project ./build

@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "del-cli": "^1.1.0",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.6.2",
+    "surge": "latest"
   }
 }
