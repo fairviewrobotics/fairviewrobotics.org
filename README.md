@@ -1,4 +1,4 @@
-# fairviewrobotics.github.io
+# fairviewrobotics.org
 
 ## Description
 
@@ -26,9 +26,10 @@ Then run the dev server: `npm start`
 
 Done!
 
-#### How do I deploy to github pages?
+#### How do I deploy the site?
 
-Run the deploy command: `npm run deploy`
+Travis ci does all the heavy lifting for us! Travis will build the project and will then automatically delploy it to
+surge (surge is the site that hosts our files on the web, a better github.io) for us! Also, both travis ci and surge are free!
 
 **NOTE:**
 
