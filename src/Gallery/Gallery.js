@@ -108,7 +108,14 @@ export default class Gallery extends Component {
                   if (gallery.name === this.state.currentGallery) {
                     return gallery.images.map((image, index) => (
                       <div key={image.thumbnail} className="image-thumb-outer">
-                        <img className="image-thumb" height="87.5px" width="auto" src={image.thumbnail} onClick={() => this.fullscreenImageAt(index)} />
+                        <img
+                          className="image-thumb"
+                          height="87.5px"
+                          width="auto"
+                          src={image.thumbnail}
+                          onClick={() => this.fullscreenImageAt(index)}
+                          alt={`${gallery.name} thumbnail`}
+                        />
                       </div>
                     ));
                   }
