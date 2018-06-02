@@ -1,7 +1,6 @@
 .error-container {
   display: flex;
   min-height: 100%;
-  flex-grow: 1;
 }
 
 .error-item {
