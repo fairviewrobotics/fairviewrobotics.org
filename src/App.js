@@ -12,8 +12,9 @@ import Calendar from "./Calendar/Calendar";
 import Sponsors from "./Sponsors/Sponsors";
 import Gallery from "./Gallery/Gallery";
 import ScrollToTop from "./ScrollToTop";
+import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
 
-import { sponsors, galleries } from "./constants";
+import { galleries, sponsors } from "./constants";
 
 // TODO move into constants
 function importAll(r) {
@@ -22,17 +23,17 @@ function importAll(r) {
 
 const homePageImages = importAll(require.context('./images/we-are/', false, /\.(png|jpe?g|svg)$/));
 
-const weAreItems = homePageImages.map(src => ({
+const weAreItems = homePageImages.map(src => ( {
   src,
   name: src.split('.')[0].split('/').slice(-1)[0]
-}));
+} ));
 
 const sponsorImages = importAll(require.context('./images/sponsors/', false, /\.(png|jpe?g|svg)$/));
 
-const sponsorItems = sponsors.map(sponsor => ({
+const sponsorItems = sponsors.map(sponsor => ( {
   ...sponsor,
   src: sponsorImages.find(image => image.includes(sponsor.name))
-}));
+} ));
 
 class App extends Component {
 
@@ -63,25 +64,29 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div>
+        <ErrorBoundary>
           <RouteChange onRouteChange={this.handleRouteChange}/>
 
           <Header isCollapsed={!this.state.isMainPage}/>
 
-          <Route component={ScrollToTop} />
+          <ErrorBoundary>
 
-          <Switch>
-            <Route exact path="/" render={() => <Home shuffle weAreItems={weAreItems}/>}/>
-            <Route exact path="/about" component={About}/>
-            <Route exact path="/sponsors" render={() => <Sponsors sponsors={sponsorItems} />}/>
-            <Route exact path="/gallery" render={() => <Gallery galleries={galleries}/>}/>
-            <Route exact path="/calendar" component={Calendar}/>
+            <Route component={ScrollToTop}/>
 
-            <Route component={NotFound} />
-          </Switch>
+            <Switch>
+              <Route exact path="/" render={() => <Home shuffle weAreItems={weAreItems}/>}/>
+              <Route exact path="/about" component={About}/>
+              <Route exact path="/sponsors" render={() => <Sponsors sponsors={sponsorItems}/>}/>
+              <Route exact path="/gallery" render={() => <Gallery galleries={galleries}/>}/>
+              <Route exact path="/calendar" component={Calendar}/>
+
+              <Route component={NotFound}/>
+            </Switch>
+
+          </ErrorBoundary>
 
           <Footer fixed={this.state.isMainPage} socialMedia={this.props.socialMedia}/>
-        </div>
+        </ErrorBoundary>
       </BrowserRouter>
     );
   }
