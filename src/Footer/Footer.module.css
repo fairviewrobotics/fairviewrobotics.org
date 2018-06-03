@@ -1,8 +1,9 @@
-.social-media {
+.socialMedia {
   height: 10vh;
   width: 30vw;
 }
 
+/* TODO: use flex instead */
 .absolute {
   position: absolute;
   left: 50%;
@@ -16,7 +17,7 @@
   margin-bottom: 5em;
 }
 
-.social-email {
+.email {
   font-size: 1em;
   text-align: center;
   right: 0;
@@ -28,12 +29,12 @@
   color: var(--main-color);
 }
 
-.social-email:hover {
+.email:hover {
   color: var(--second-color);
 }
 
 @media(max-width:768px) {
-  .social-media {
+  .socialMedia {
     width: 80vw;
   }
 }

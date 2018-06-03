@@ -4,7 +4,7 @@ import { Button } from "react-bootstrap";
 import noScroll from 'no-scroll';
 import BackgroundImage from "../BackgroundImage/BackgroundImage";
 
-import './Gallery.css';
+import styles from './Gallery.module.css';
 
 import Slideshow from "./Slideshow";
 
@@ -50,7 +50,7 @@ export default class Gallery extends Component {
     // TODO: refactor
     if (nextImage >= 1) {
       if (this.state.currentImage + nextImage >= this.getImages().length) {
-        return this.state.currentImage + nextImage - this.getImages().length ;
+        return this.state.currentImage + nextImage - this.getImages().length;
       }
 
       return this.state.currentImage + nextImage;
@@ -75,9 +75,10 @@ export default class Gallery extends Component {
     let slideShow = null;
 
     if (this.state.currentImage !== null) {
-      const {src} = this.getCurrentGallery().images[this.state.currentImage];
+      const { src } = this.getCurrentGallery().images[this.state.currentImage];
 
-      slideShow = <Slideshow src={src} alt={this.state.currentGallery} onPreviousImage={this.handlePreviousImage} onNextImage={this.handleNextImage} onExit={this.exitSlideshow}/>
+      slideShow = <Slideshow src={src} alt={this.state.currentGallery} onPreviousImage={this.handlePreviousImage}
+                             onNextImage={this.handleNextImage} onExit={this.exitSlideshow}/>
 
       noScroll.on();
     } else {
@@ -91,28 +92,31 @@ export default class Gallery extends Component {
         {slideShow}
         <h1 className="page-title">gallery</h1>
 
-        <div className="gallery-outer">
-          <div className="gallery-header">
+        <div className={styles.galleryContainer}>
+          <div className={styles.header}>
             {
               this.props.galleries.map(gallery => {
 
                 const ifCurrentGalleryStyle = gallery.name === this.state.currentGallery ? 'selected' : '';
 
                 return (
-                  <Button key={gallery.name} id="gallery-button" className={ifCurrentGalleryStyle} onClick={() => this.changeGallery(gallery.name)}>
+                  <Button
+                    key={gallery.name}
+                    className={`${ifCurrentGalleryStyle} ${styles.galleryButton}`}
+                    onClick={() => this.changeGallery(gallery.name)}>
                     {gallery.name}
                   </Button>
                 )
               })
             }
           </div>
-          <div className="gallery-content">
+          <div className={styles.galleryContent}>
             {
               this.props.galleries
                 .map(gallery => {
                   if (gallery.name === this.state.currentGallery) {
                     return gallery.images.map((image, index) => (
-                      <div key={image.thumbnail} className="image-thumb-outer">
+                      <div key={image.thumbnail} className={styles.imageThumbnail}>
                         <img
                           className="image-thumb"
                           height="87.5px"

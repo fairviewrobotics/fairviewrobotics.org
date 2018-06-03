@@ -56,3 +56,7 @@ a:focus {
   text-decoration: none;
   color: var(--second-color);
 }
+
+.errorMessage {
+  background-color: #9a1f24;
+}

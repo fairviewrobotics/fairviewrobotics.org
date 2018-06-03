@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import './Sponsor.css';
+import styles from './Sponsor.module.css';
 
 export default class Sponsor extends PureComponent {
 
@@ -16,8 +16,8 @@ export default class Sponsor extends PureComponent {
     const trueWidth = this.props.size * .9;
 
     return (
-      <a className='company' target='_blank' href={this.props.url}>
-        <img src={this.props.src} alt={this.props.name} style={{ height: 'auto', width: `${trueWidth}vw` }} />
+      <a className={styles.sponsor} target='_blank' href={this.props.url}>
+        <img src={this.props.src} alt={this.props.name} className={styles.image} style={{ width: `${trueWidth}vw` }} />
       </a>
     );
   }

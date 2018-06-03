@@ -1,9 +1,9 @@
-.error-container {
+.container {
   display: flex;
   min-height: 100%;
 }
 
-.error-item {
+.errorMessage {
   margin: auto;
   text-align: center;
 }

@@ -1,4 +1,4 @@
-#image-parallax {
+.imageParallax {
   height: calc(100% + 100px);
   width: 100%;
   top: -100px;
@@ -10,11 +10,11 @@
   transition-delay: 2s;
 }
 
-#image-parallax.not-fullscreen {
+.imageParallax.notFullscreen {
   height: calc(25vw + 100px) !important;
 }
 
-.intro-mask {
+.introMask {
   position: absolute;
   width: 100%;
   left: 0;
@@ -24,16 +24,16 @@
   background-color: rgba(255, 255, 255, 0.6);
 }
 
-.intro-mask.not-fullscreen {
+.introMask.notFullscreen {
   height: calc(25vw) !important;
 }
 
 @media(max-width:768px) {
-  #image-parallax.not-fullscreen {
+  .imageParallax.notFullscreen {
     height: calc(35vw + 100px) !important;
   }
 
-  .intro-mask.not-fullscreen {
+  .introMask.notFullscreen {
     height: calc(35vw) !important;
   }
 }

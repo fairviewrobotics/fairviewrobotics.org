@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import shuffle from 'array-shuffle';
 
-import './Home.css';
+import styles from './Home.module.css';
 
 import BackgroundImage from "../BackgroundImage/BackgroundImage";
 
@@ -34,6 +34,7 @@ export default class Home extends Component {
 
   componentDidMount() {
     this.loopWeAre();
+    // todo: implement document.documentElement.setProperty('--transition-time', this.state.textPos / 2);
   }
 
   componentWillUnmount() {
@@ -81,9 +82,9 @@ export default class Home extends Component {
     let fadeClass = '';
 
     if (this.state.fadingIn) {
-      fadeClass = 'fading-in';
+      fadeClass = styles.fadingIn;
     } else if (this.state.fadingOut) {
-      fadeClass = 'fading-out';
+      fadeClass = styles.fadingOut;
     }
 
     const {name: weAre} = this.state.items[this.state.textPos];
@@ -95,7 +96,7 @@ export default class Home extends Component {
           duration: this.props.timeToFade / 2,
           delay: this.props.timeToFade / 2
         }} />
-        <h1 className={`we-are ${fadeClass}`}>we are <span className="we-are-inner">{weAre}</span></h1>
+        <h1 className={`${styles.weAre} ${fadeClass}`}>we are <span className={styles.weAreInner}>{weAre}</span></h1>
       </div>
     );
   }

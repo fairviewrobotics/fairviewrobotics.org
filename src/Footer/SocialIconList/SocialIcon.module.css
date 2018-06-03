@@ -1,4 +1,4 @@
-.social-icon {
+.socialIcon {
   height: 1.5em;
   width: 3em;
   cursor: pointer;
@@ -11,6 +11,6 @@
   text-align: center;
 }
 
-.social-icon:hover {
+.socialIcon:hover {
   color: var(--second-color);
 }

@@ -1,4 +1,4 @@
-.we-are {
+.weAre {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -14,17 +14,17 @@
   --transition-time: 750ms;
 }
 
-.we-are.fading-out {
+.weAre.fadingOut {
   opacity: 0;
   transition: opacity var(--transition-time) ease-in;
 }
 
-.we-are.fading-in {
+.we-are.fadingIn {
   opacity: 1;
   transition: opacity var(--transition-time) ease-in;
 }
 
-.we-are-inner {
+.weAreInner {
   font-weight: 900;
   color: #b20202;
 }

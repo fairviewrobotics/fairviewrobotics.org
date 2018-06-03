@@ -1,28 +1,16 @@
-.page-title {
-  position: absolute;
-  font-size: 10vw;
-  font-weight: 100;
-  text-align: center;
-  display: block;
-  left: 0;
-  right: 0;
-  top: calc(5vw + 50px);
-  color: #000;
-}
-
-.about-outer {
+.aboutContainer {
   width: 65%;
   margin-top: 30vw;
   margin-left: auto;
   margin-right: auto;
 }
 
-.about-outer > p {
+.aboutContainer > p {
   font-weight: 100;
   line-height: 1.6;
 }
 
-.main-h2 {
+.header {
   margin-top: 100px;
   margin-bottom: 1vw;
   font-size: 2.75em;
@@ -34,7 +22,7 @@
   font-weight: 100;
 }
 
-.about-img {
+.image {
   width: 25vw;
   height: auto;
   clear: both;
@@ -42,32 +30,20 @@
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
 }
 
-.about-img.left {
+.image.left {
   float: left;
   margin-right: 2em;
   clear: left;
 }
 
-.about-img.right {
+.image.right {
   float: right;
   margin-left: 2em;
 }
 
 @media(max-width:768px) {
-  .about-outer {
+  .aboutContainer {
     width: 80% !important;
     margin-top: 40vw !important;
-  }
-
-  .page-title {
-    font-size: 15vw !important;
-    top: calc(5vw + 50px) !important;
-  }
-}
-
-@media(max-width:450px) {
-  .page-title {
-    font-size: 7.5vw;
-    top: calc(4vw + 50px);
   }
 }

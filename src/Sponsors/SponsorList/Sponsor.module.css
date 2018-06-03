@@ -1,15 +1,19 @@
-.company {
+.sponsor {
   margin: 3vw;
   opacity: 0.8;
   transition: opacity 0.25s;
 }
 
-.company:hover {
+.sponsor:hover {
   opacity: 1;
 }
 
+.image {
+  height: auto;
+}
+
 @media(max-width:768px) {
-  .company {
+  .sponsor {
     margin: 15vw;
     transform: scale(1.8);
   }

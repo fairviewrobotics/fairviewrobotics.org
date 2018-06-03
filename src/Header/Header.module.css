@@ -1,4 +1,4 @@
-.nav-custom {
+.customNav {
   margin-bottom: 0;
   border-bottom: 1px solid rgba(0,0,0,.3);
   text-transform: uppercase;
@@ -6,11 +6,7 @@
   background-color: #fff;
 }
 
-.nav-items {
-  margin-right: 10px;
-}
-
-.header-logo {
+.logo {
   cursor: pointer;
   width: 20%;
   height: auto;
@@ -20,23 +16,23 @@
   opacity: 1;
 }
 
-#main-nav {
-  margin: 0 20px 0 0;
+.nav {
+  margin: 0 20px 0 0 !important;
 }
 
 /* the --main-color is a css variable found in index.css */
-#main-nav a {
-  color: var(--main-color);
+.nav a {
+  color: var(--main-color) !important;
 }
 
-#main-nav a:hover,
-#main-nav li.active a {
-  background-color: rgba(0, 0, 0, 0);
-  color: var(--second-color);
+.nav a:hover,
+.nav li:global(.active) a {
+  background-color: rgba(0, 0, 0, 0) !important;
+  color: var(--second-color) !important;
 }
 
 @media(max-width: 768px) {
-  .header-logo {
+  .logo {
     height: 45px;
     top: 5px;
     left: 1px;
@@ -45,7 +41,7 @@
 }
 
 @media(min-width: 768px) {
-  .nav-custom {
+  .customNav {
     padding: 20px 0;
     border-bottom: 0;
     letter-spacing: 1px;
@@ -53,7 +49,7 @@
     transition: background .5s ease-in-out,padding .5s ease-in-out;
   }
 
-  .header-logo {
+  .logo {
     z-index: 1;
     height: 90%;
     width: auto;
@@ -64,7 +60,7 @@
     transition: opacity 0.5s;
   }
 
-  .nav-custom.top-nav-collapse {
+  .customNav.topNavCollapse {
     padding: 0;
     border-bottom: 1px solid rgba(0,0,0,.3);
     background: #fff;

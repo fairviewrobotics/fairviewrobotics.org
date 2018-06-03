@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './ErrorBoundary.css';
+import styles from './ErrorBoundary.module.css';
 
 export default class ErrorBoundary extends Component {
 
@@ -15,8 +15,8 @@ export default class ErrorBoundary extends Component {
 
     if (this.state.hasError) {
       return (
-        <div className="error-container">
-          <div className="error-item">
+        <div className={styles.container}>
+          <div className={styles.errorMessage}>
             <h1>Something went wrong!</h1>
             <p>Try refreshing the browser.</p>
           </div>

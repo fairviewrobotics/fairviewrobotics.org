@@ -390,7 +390,6 @@ Temporary Items
 =======
 # Local
 dokcer-compose.yml
-.env
 
 # dependencies
 /node_modules

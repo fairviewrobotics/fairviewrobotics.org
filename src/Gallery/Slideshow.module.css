@@ -1,6 +1,4 @@
-/* TODO: rename image to slideshow */
-
-#image-full-outer {
+.slideshowFullOuter {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -16,7 +14,8 @@
   user-select: none;
 }
 
-.image-container {
+/* TODO: refactor */
+.slideshowContainer {
   display: flex;
   height: 90%;
   width: 90%;
@@ -27,19 +26,19 @@
   transition: opacity 0.5s;
 }
 
-.loading-text {
+.loadingText {
   margin: auto 0;
   text-align: center;
 }
 
-.image-full {
+.fullImage {
   max-height: 100%;
   max-width: 100%;
   cursor: pointer;
   pointer-events: auto;
 }
 
-#image-full-close {
+.imageClose {
   font-size: 20px;
   position: absolute;
   top: 10px;
@@ -50,17 +49,12 @@
   transition: none;
 }
 
-#image-full-close:hover {
+.imageClose:hover {
   opacity: 1;
   text-decoration: underline;
 }
 
-#image-full-outer.non-bootstrap-hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.full-arrow {
+.fullArrow {
   font-size: 150px;
   position: absolute;
   top: 50%;
@@ -71,38 +65,22 @@
   transition: none;
 }
 
-.left-arrow {
+.leftArrow {
   left: 15px;
 }
 
-.right-arrow {
+.rightArrow {
   right: 15px;
 }
 
-.full-arrow:hover {
+.fullArrow:hover {
   opacity: 1;
   color: var(--main-color);
 }
 
 @media(max-width:768px)  {
-  .full-arrow {
+  .fullArrow {
     /* TODO: make more dynamic */
     font-size: 75px;
   }
-}
-
-.image-thumb-outer {
-  border: 2px solid #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  height: auto;
-  width: auto;
-  margin: 15px;
-  cursor: pointer;
-  display: inline-block;
-  transition: border 0.2s;
-  -webkit-transition: border 0.2s;
-}
-
-.image-thumb-outer:hover {
-  border: 2px solid #b2020;
 }

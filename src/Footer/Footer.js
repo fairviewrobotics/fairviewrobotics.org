@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import SocialIconList from "./SocialIconList/SocialIconList";
 
-import './Footer.css'
+import styles from './Footer.module.css'
 
 export default class Footer extends PureComponent {
 
@@ -15,12 +15,12 @@ export default class Footer extends PureComponent {
   };
 
   render() {
-    const footerType = this.props.fixed ? 'absolute' : 'inline';
+    const footerType = this.props.fixed ? styles.absolute : styles.inline;
 
     return (
-      <div className={`social-media ${footerType}`}>
+      <div className={`${styles.socialMedia} ${footerType}`}>
         <SocialIconList socialMedia={this.props.socialMedia}/>
-        <a className="social-email" href="mailto:fairviewrobotics@gmail.com">FAIRVIEWROBOTICS@GMAIL.COM</a>
+        <a className={styles.email} href="mailto:fairviewrobotics@gmail.com">FAIRVIEWROBOTICS@GMAIL.COM</a>
       </div>
     );
   }

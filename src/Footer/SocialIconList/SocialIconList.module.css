@@ -1,4 +1,4 @@
-.social-media-list {
+.socialMediaList {
   display: flex;
   position: absolute;
   height: 10vh;
@@ -9,7 +9,7 @@
 }
 
 @media(max-width:768px) {
-  .social-media-list {
+  .socialMediaList {
     width: 80vw;
   }
 }

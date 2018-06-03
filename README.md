@@ -31,6 +31,20 @@ Done!
 Travis ci does all the heavy lifting for us! Travis will build the project and will then automatically delploy it to
 surge (surge is the site that hosts our files on the web, a better github.io) for us! Also, both travis ci and surge are free!
 
+
+#### Styling with CSS Modules
+
+We are using a cool method of including css called [CSS Modules](https://github.com/css-modules/css-modules).
+This allows us to isolate css to a certain component. Behind the scenes [custom-react-scripts](https://github.com/kitze/custom-react-scripts)
+is handling the transformation for us. The way it works is a module css classes will be appended a unique name to differnate itself from other classes.
+For example, css module with class `.container` in the component Header might become `.header-container`.
+Why would we want this? [see some reasons here.](https://blog.pusher.com/css-modules-react/)
+
+We can still use global css classes. You just create a file **without** `.module.css`, instead use the regular style `.css`.
+
+Why `.module.css` for CSS modules? That's just how [custom-react-scripts](https://github.com/kitze/custom-react-scripts) identifies modules.
+
+
 **NOTE:**
 
 NPM scripts that are [custom](https://stackoverflow.com/questions/36433461/how-do-i-add-a-custom-script-to-my-package-json-file-that-runs-a-javascript-file)

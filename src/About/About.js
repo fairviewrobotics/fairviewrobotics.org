@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './About.css';
+import styles from './About.module.css';
 
 import backgroundImage from '../images/intro/9.jpg';
 
@@ -26,9 +26,9 @@ export default class About extends Component {
         <BackgroundImage src={backgroundImage}/>
         <h1 className="page-title">About</h1>
 
-        <div className="about-outer">
-          <img src={comp2017_20} style={{ marginTop: '-0.5vw' }} className="about-img left" alt="the team at competition" />
-          <h2 className="main-h2" style={{ marginTop: '-0.5vw' }}>TEAM OVERVIEW</h2>
+        <div className={styles.aboutContainer}>
+          <img src={comp2017_20} style={{ marginTop: '-0.5vw' }} className={`${styles.image} ${styles.left}`} alt="the team at competition" />
+          <h2 className={styles.header} style={{ marginTop: '-0.5vw' }}>TEAM OVERVIEW</h2>
           <p>We are Fairview Robotics, a high school robotics team from Fairview High School in Boulder, Colorado.
             Our robotics team consists of a group of motivated students that have a passion for robotics and STEM.
             Our team participates in the FIRST Robotics Competition (FRC), which gives us the opportunity to express
@@ -37,14 +37,14 @@ export default class About extends Component {
             this competition, we provide an outlet to motivated students to pursue their interests in math, science,
             technology, and engineering.</p>
 
-          <img src={comp2017_11} className="about-img right" alt="high fiving" />
+          <img src={comp2017_11} className={`${styles.image} ${styles.right}`} alt="high fiving" />
           <p>Our rookie season was in 2007, and since then, we have grown to become a very successful team.
             In 2010, our team won the regional event and attended the World Championship in Atlanta. In the 2017 Denver
             regional competition, we won 6th place out of 50 teams that came from all across the United States.
             This year, we hope to compete at both the Denver and Utah regional competitions, as well as going to
             Nationals!</p>
 
-          <img src={build2017_5} className="about-img left" alt="the team working on the robot" />
+          <img src={build2017_5} className={`${styles.image} ${styles.left}`} alt="the team working on the robot" />
           <p>The great thing about how we structure our team is that it’s highly educational, completely student run,
             and
             fun for all of our team members. Inclusivity and diversity are hardwired into our team. The perceived
@@ -53,8 +53,8 @@ export default class About extends Component {
             training and creating an inclusive, fun, and creatively active environment.</p>
 
 
-          <img src={comp2016_7} style={{ marginTop: '2.5vh' }} className="about-img right" alt="2016 robot" />
-          <h2 className="main-h2" style={{ marginTop: '5vw' }}>ABOUT FIRST ROBOTICS</h2>
+          <img src={comp2016_7} style={{ marginTop: '2.5vh' }} className={`${styles.image} ${styles.right}`} alt="2016 robot" />
+          <h2 className={styles.header} style={{ marginTop: '5vw' }}>ABOUT FIRST ROBOTICS</h2>
           <p>FIRST (For Inspiration and Recognition of Science Technology) Robotics is a national competition where high
             school
             teams build and program 120-pound robots from scratch during a six week period. This competition inspires
@@ -66,8 +66,8 @@ export default class About extends Component {
             more information on FIRST Robotics, visit <a
               href="https://www.firstinspires.org/">https://www.firstinspires.org/</a>.</p>
 
-          <img src={build2017_2} className="about-img left" alt="bag night 2017" />
-          <h2 className="main-h2" style={{ marginTop: '2.5vw' }}>MEETINGS &amp; SCHEDULE</h2>
+          <img src={build2017_2} className={`${styles.image} ${styles.left}`} alt="bag night 2017" />
+          <h2 className={styles.header} style={{ marginTop: '2.5vw' }}>MEETINGS &amp; SCHEDULE</h2>
           <p>During the first semester, we meet every week after school on Wednesdays between 3:30-5:00 PM. However,
             for the six weeks of our season between January and February, we meet every day after school between
             3:30-7:00 PM and on Saturdays from 10 AM - 4 PM. This is in order to build the robot to solve the challenges

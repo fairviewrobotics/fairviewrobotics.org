@@ -1,17 +1,4 @@
-/* TODO: create basic css for pages */
-.page-title {
-  position: absolute;
-  font-size: 10vw;
-  font-weight: 100;
-  text-align: center;
-  display: block;
-  left: 0;
-  right: 0;
-  top: calc(5vw + 50px);
-  color: var(--main-color);
-}
-
-.main-h2 {
+.header {
   margin-top: 100px;
   margin-bottom: 1vw;
   font-size: 2.75em;
@@ -28,17 +15,17 @@
   box-shadow: 0 0 5px rgba(0, 0, 0, .3);
 }
 
-.calendar-container {
+.calendarContainer {
   margin-top: -100px;
 }
 
-.calendar-body {
+.calendarBody {
   margin-top: 30vw;
   text-align: center;
 }
 
 @media(max-width:768px) {
-  .calendar-body {
+  .calendarBody {
     margin-top: 40vw;
   }
 }

@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import SponsorList from "./SponsorList/SponsorList";
 import BackgroundImage from "../BackgroundImage/BackgroundImage";
 
-import './Sponsors.css';
-
 import intro11 from '../images/intro/11.jpg';
 
 export default class Sponsors extends PureComponent {

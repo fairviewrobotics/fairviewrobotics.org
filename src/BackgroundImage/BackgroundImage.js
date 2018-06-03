@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import './BackgroundImage.css';
+import styles from './BackgroundImage.module.css';
 
 export default class BackgroundImage extends PureComponent {
 
@@ -27,7 +27,7 @@ export default class BackgroundImage extends PureComponent {
       imageStyle.position = 'absolute';
       imageStyle.backgroundPosition = '50% 75px';
     }
-    const fullScreenClass = !this.props.fullScreen ? 'not-fullscreen' : '';
+    const fullScreenClass = !this.props.fullScreen ? styles.notFullscreen : '';
     
     const animationStyle = this.props.animate ?
       {
@@ -39,8 +39,8 @@ export default class BackgroundImage extends PureComponent {
 
     return (
       <div>
-        <div className={`intro-mask ${fullScreenClass}`} />
-        <div id="image-parallax" className={fullScreenClass} style={{ ...imageStyle, ...animationStyle }} />
+        <div className={`${styles.introMask} ${fullScreenClass}`} />
+        <div className={`${styles.imageParallax} ${fullScreenClass}`} style={{ ...imageStyle, ...animationStyle }} />
       </div>
     );
   }

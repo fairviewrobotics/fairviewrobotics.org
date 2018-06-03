@@ -8,7 +8,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import { faBars } from "@fortawesome/fontawesome-free-solid/shakable.es";
 
-import './Header.css';
+import styles from './Header.module.css';
 
 import logo from '../images/logo.png';
 
@@ -22,14 +22,14 @@ class Header extends Component {
   };
 
   render() {
-    const collapsedStyling = this.props.isCollapsed ? 'top-nav-collapse' : null;
+    const collapsedStyling = this.props.isCollapsed ? styles.topNavCollapse : null;
 
     return (
-      <BSNavBar collapseOnSelect fixedTop bsStyle="none" className={`nav-custom ${collapsedStyling}`}>
+      <BSNavBar collapseOnSelect fixedTop bsStyle="none" className={`${styles.customNav} ${collapsedStyling}`}>
         <BSNavBar.Header>
           <BSNavBar.Brand>
             <NavLink to="/">
-              <img src={logo} alt="logo" className="header-logo" />
+              <img src={logo} alt="logo" className={styles.logo} />
             </NavLink>
           </BSNavBar.Brand>
           <BSNavBar.Toggle>
@@ -37,7 +37,7 @@ class Header extends Component {
           </BSNavBar.Toggle>
         </BSNavBar.Header>
         <BSNavBar.Collapse>
-          <Nav pullRight id="main-nav">
+          <Nav pullRight className={styles.nav}>
             <LinkContainer to="/about">
               <NavItem>About</NavItem>
             </LinkContainer>

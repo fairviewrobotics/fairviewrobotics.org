@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import SocialIcon from "./SocialIcon";
 
-import './SocialIconList.css';
+import styles from './SocialIconList.module.css';
 
 export default class SocialIconList extends PureComponent {
 
@@ -15,7 +15,7 @@ export default class SocialIconList extends PureComponent {
 
   render() {
     return (
-      <div className="social-media-list">
+      <div className={styles.socialMediaList}>
         {this.props.socialMedia.map(icon =>
           <SocialIcon key={icon.url} icon={icon.icon} url={icon.url} />
         )}

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from "@fortawesome/fontawesome-free-solid/shakable.es";
 
-import './Slideshow.css';
+import styles from './Slideshow.module.css';
 
 export default class Slideshow extends Component {
 
@@ -62,28 +62,28 @@ export default class Slideshow extends Component {
 
   render() {
     return (
-      <div id="image-full-outer" onClick={this.props.onExit}>
-        <div className="image-container" onClick={this.preventExit}>
-          <a id="image-full-close" onClick={this.props.onExit}>close</a>
+      <div className={styles.slideshowFullOuter} onClick={this.props.onExit}>
+        <div className={styles.slideshowContainer} onClick={this.preventExit}>
+          <a className={styles.imageClose} onClick={this.props.onExit}>close</a>
           <FontAwesomeIcon
-            className="full-arrow left-arrow"
+            className={`${styles.fullArrow} ${styles.leftArrow}`}
             onClick={this.props.onPreviousImage}
             icon={faAngleLeft}/>
           {
             !this.state.isLoaded &&
-            <div className="loading-text">
+            <div className={styles.loadingText}>
               <h1>Loading...</h1>
             </div>
           }
           <img
-            className="image-full"
+            className={styles.fullImage}
             onClick={this.redirectToImage}
             src={this.props.src}
             alt={this.props.alt}
             ref={this.preLoad}
           />
           <FontAwesomeIcon
-            className="full-arrow right-arrow"
+            className={`${styles.fullArrow} ${styles.rightArrow}`}
             onClick={this.props.onNextImage}
             icon={faAngleRight} />
         </div>

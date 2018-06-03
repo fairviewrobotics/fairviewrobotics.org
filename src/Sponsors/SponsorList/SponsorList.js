@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Sponsor from "./Sponsor";
 
-import './SponsorList.css';
+import styles from './SponsorList.module.css';
 
 export default class SponsorList extends PureComponent {
 
@@ -17,7 +17,7 @@ export default class SponsorList extends PureComponent {
 
   render() {
     return (
-      <div id="companies-outer">
+      <div className={styles.sponsorList}>
         {this.props.sponsors.map(sponsor =>
           <Sponsor key={sponsor.name} name={sponsor.name} size={sponsor.size} url={sponsor.url} src={sponsor.src} />
         )}
