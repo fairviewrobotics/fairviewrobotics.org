@@ -105,10 +105,9 @@ export default class Gallery extends Component {
     });
 
     const currentGalleryPhotos = this.getImages().map((image, index) => (
-      <div key={image.thumbnail} className={styles.imageThumbnail}>
+      <div key={image.thumbnail} className={styles.imageThumbnailContainer}>
         <img
-          height="87.5px"
-          width="auto"
+          className={styles.thumbnail}
           src={image.thumbnail}
           onClick={() => this.fullscreenImageAt(index)}
           alt={`${this.state.currentGallery} thumbnail`}

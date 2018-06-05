@@ -55,7 +55,7 @@
   justify-content: space-around;
 }
 
-.imageThumbnail {
+.imageThumbnailContainer {
   border: 2px solid #fff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   height: auto;
@@ -67,8 +67,13 @@
   -webkit-transition: border 0.2s;
 }
 
-.imageThumbnail:hover {
+.imageThumbnailContainer:hover {
   border: 2px solid #b2020;
+}
+
+.thumbnail {
+  height: 88px;
+  width: auto;
 }
 
 @media(max-width:768px) {
