@@ -107,7 +107,6 @@ export default class Gallery extends Component {
     const currentGalleryPhotos = this.getImages().map((image, index) => (
       <div key={image.thumbnail} className={styles.imageThumbnail}>
         <img
-          className="image-thumb"
           height="87.5px"
           width="auto"
           src={image.thumbnail}
