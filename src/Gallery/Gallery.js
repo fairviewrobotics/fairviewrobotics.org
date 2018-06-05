@@ -76,16 +76,47 @@ export default class Gallery extends Component {
 
     if (this.state.currentImage !== null) {
       const { src } = this.getCurrentGallery().images[this.state.currentImage];
-
-      slideShow = <Slideshow src={src} alt={this.state.currentGallery} onPreviousImage={this.handlePreviousImage}
-                             onNextImage={this.handleNextImage} onExit={this.exitSlideshow}/>
-
+      slideShow = (
+        <Slideshow
+          src={src}
+          alt={this.state.currentGallery}
+          onPreviousImage={this.handlePreviousImage}
+          onNextImage={this.handleNextImage}
+          onExit={this.exitSlideshow}
+        />
+      );
       noScroll.on();
     } else {
       noScroll.off();
     }
 
-    // TODO: extract out of jsx
+    const galleries = this.props.galleries.map(gallery => {
+
+      const ifCurrentGalleryStyle = gallery.name === this.state.currentGallery ? styles.selected : '';
+
+      return (
+        <Button
+          key={gallery.name}
+          className={`${ifCurrentGalleryStyle} ${styles.galleryButton}`}
+          onClick={() => this.changeGallery(gallery.name)}>
+          {gallery.name}
+        </Button>
+      )
+    });
+
+    const currentGalleryPhotos = this.getImages().map((image, index) => (
+      <div key={image.thumbnail} className={styles.imageThumbnail}>
+        <img
+          className="image-thumb"
+          height="87.5px"
+          width="auto"
+          src={image.thumbnail}
+          onClick={() => this.fullscreenImageAt(index)}
+          alt={`${this.state.currentGallery} thumbnail`}
+        />
+      </div>
+    ));
+
     return (
       <div>
         <BackgroundImage src={intro5}/>
@@ -94,44 +125,10 @@ export default class Gallery extends Component {
 
         <div className={styles.galleryContainer}>
           <div className={styles.header}>
-            {
-              this.props.galleries.map(gallery => {
-
-                const ifCurrentGalleryStyle = gallery.name === this.state.currentGallery ? 'selected' : '';
-
-                return (
-                  <Button
-                    key={gallery.name}
-                    className={`${ifCurrentGalleryStyle} ${styles.galleryButton}`}
-                    onClick={() => this.changeGallery(gallery.name)}>
-                    {gallery.name}
-                  </Button>
-                )
-              })
-            }
+            {galleries}
           </div>
           <div className={styles.galleryContent}>
-            {
-              this.props.galleries
-                .map(gallery => {
-                  if (gallery.name === this.state.currentGallery) {
-                    return gallery.images.map((image, index) => (
-                      <div key={image.thumbnail} className={styles.imageThumbnail}>
-                        <img
-                          className="image-thumb"
-                          height="87.5px"
-                          width="auto"
-                          src={image.thumbnail}
-                          onClick={() => this.fullscreenImageAt(index)}
-                          alt={`${gallery.name} thumbnail`}
-                        />
-                      </div>
-                    ));
-                  }
-
-                  return null;
-                })
-            }
+            {currentGalleryPhotos}
           </div>
         </div>
       </div>
