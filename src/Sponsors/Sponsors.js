@@ -16,6 +16,10 @@ export default class Sponsors extends PureComponent {
     })).isRequired
   };
 
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   render() {
     return (
       <div>

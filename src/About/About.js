@@ -20,6 +20,11 @@ import BackgroundImage from "../BackgroundImage/BackgroundImage";
 // TODO: break into more components Paragraph, image
 
 export default class About extends Component {
+
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   render() {
     return (
       <div>

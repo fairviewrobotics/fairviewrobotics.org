@@ -7,6 +7,11 @@ import styles from './Calendar.module.css';
 import intro6 from '../images/intro/6.jpg';
 
 export default class Calendar extends PureComponent {
+
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   render() {
     return (
       <div>

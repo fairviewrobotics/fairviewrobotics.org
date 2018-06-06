@@ -10,11 +10,10 @@ import Home from "./Home/Home";
 import About from "./About/About";
 import Calendar from "./Calendar/Calendar";
 import Sponsors from "./Sponsors/Sponsors";
-import Gallery from "./Gallery/Gallery";
-import ScrollToTop from "./ScrollToTop";
 import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
 
 import { galleries, sponsors } from "./constants";
+import Gallery from "./Gallery/Gallery";
 
 // TODO move into constants
 function importAll(r) {
@@ -53,7 +52,7 @@ class App extends Component {
     if (this.state.isMainPage && (
       pathname === '/about' ||
       pathname === '/sponsors' ||
-      pathname === '/gallery' ||
+      pathname.startsWith('/gallery') ||
       pathname === '/calendar' )) {
       this.setState({ isMainPage: false });
     } else if (!this.state.isMainPage && pathname === '/') {
@@ -70,19 +69,15 @@ class App extends Component {
           <Header isCollapsed={!this.state.isMainPage}/>
 
           <ErrorBoundary>
-
-            <Route component={ScrollToTop}/>
-
             <Switch>
               <Route exact path="/" render={() => <Home shuffle weAreItems={weAreItems}/>}/>
               <Route exact path="/about" component={About}/>
               <Route exact path="/sponsors" render={() => <Sponsors sponsors={sponsorItems}/>}/>
-              <Route exact path="/gallery" render={() => <Gallery galleries={galleries}/>}/>
+              <Route path="/gallery" render={routeProps => <Gallery {...routeProps} galleries={galleries}/>}/>
               <Route exact path="/calendar" component={Calendar}/>
 
               <Route component={NotFound}/>
             </Switch>
-
           </ErrorBoundary>
 
           <Footer fixed={this.state.isMainPage} socialMedia={this.props.socialMedia}/>
