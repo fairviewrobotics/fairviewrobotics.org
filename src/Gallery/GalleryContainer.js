@@ -40,18 +40,17 @@ export default class GalleryContainer extends PureComponent {
   handleImageExit = () =>
     this.props.history.push(this.getGalleryUrl());
 
-  getNextImage = nextImage => {
-    const { currentImage } = this.props;
+  getNextImage = (nextImage, currentPos = this.props.currentImage) => {
     const { images } = this.props.currentGallery;
 
-    const nextPos = currentImage + nextImage;
+    const nextPos = nextImage + currentPos;
 
     if (nextPos >= images.length) {
-      return this.getNextImage(nextPos - images.length);
+      return this.getNextImage(nextPos - images.length, 0);
     } else if (nextPos < 0) {
-      return this.getNextImage(nextPos + images.length);
+      return this.getNextImage(nextPos + images.length, 0);
     } else {
-      return nextImage;
+      return nextPos;
     }
   };
   
