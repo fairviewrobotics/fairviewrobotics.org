@@ -79,13 +79,7 @@ export default class Home extends Component {
 
   render() {
 
-    let fadeClass = '';
-
-    if (this.state.fadingIn) {
-      fadeClass = styles.fadingIn;
-    } else if (this.state.fadingOut) {
-      fadeClass = styles.fadingOut;
-    }
+    const fadeClass = this.state.fadingOut ? styles.fadingOut : '';
 
     const {name: weAre} = this.state.items[this.state.textPos];
     const {src} = this.state.items[this.state.imagePos];

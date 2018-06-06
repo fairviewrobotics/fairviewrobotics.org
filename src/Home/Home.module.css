@@ -12,16 +12,11 @@
   width: 100%;
   opacity: 1;
   --transition-time: 750ms;
+  transition: opacity var(--transition-time) ease-in;
 }
 
 .weAre.fadingOut {
   opacity: 0;
-  transition: opacity var(--transition-time) ease-in;
-}
-
-.we-are.fadingIn {
-  opacity: 1;
-  transition: opacity var(--transition-time) ease-in;
 }
 
 .weAreInner {
