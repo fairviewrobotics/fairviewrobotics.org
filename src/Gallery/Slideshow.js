@@ -53,8 +53,20 @@ export default class Slideshow extends Component {
     }
   };
 
-  redirectToImage = () =>
+  handlePreviousImage = event => {
+    this.preventExit(event);
+    this.props.onPreviousImage();
+  };
+
+  handleNextImage = event => {
+    this.preventExit(event);
+    this.props.onNextImage();
+  };
+
+  redirectToImage = event => {
+    this.preventExit(event);
     window.location = this.props.src;
+  };
 
   // This stops the click command on anything but the background from triggering #image-full-outer's onClick event, which exits
   preventExit = event =>
@@ -63,30 +75,28 @@ export default class Slideshow extends Component {
   render() {
     return (
       <div className={styles.slideshowFullOuter} onClick={this.props.onExit}>
-        <div className={styles.slideshowContainer} onClick={this.preventExit}>
-          <a className={styles.imageClose} onClick={this.props.onExit}>close</a>
-          <FontAwesomeIcon
-            className={`${styles.fullArrow} ${styles.leftArrow}`}
-            onClick={this.props.onPreviousImage}
-            icon={faAngleLeft}/>
-          {
-            !this.state.isLoaded &&
-            <div className={styles.loadingText}>
-              <h1>Loading...</h1>
-            </div>
-          }
-          <img
-            className={styles.fullImage}
-            onClick={this.redirectToImage}
-            src={this.props.src}
-            alt={this.props.alt}
-            ref={this.preLoad}
-          />
-          <FontAwesomeIcon
-            className={`${styles.fullArrow} ${styles.rightArrow}`}
-            onClick={this.props.onNextImage}
-            icon={faAngleRight} />
-        </div>
+        <a className={styles.imageClose} onClick={this.props.onExit}>close</a>
+        <FontAwesomeIcon
+          className={`${styles.fullArrow} ${styles.leftArrow}`}
+          onClick={this.handlePreviousImage}
+          icon={faAngleLeft}/>
+        {
+          !this.state.isLoaded &&
+          <div className={styles.loadingText}>
+            <h1>Loading...</h1>
+          </div>
+        }
+        <img
+          className={`${styles.fullImage}`}
+          onClick={this.redirectToImage}
+          src={this.props.src}
+          alt={this.props.alt}
+          ref={this.preLoad}
+        />
+        <FontAwesomeIcon
+          className={`${styles.fullArrow} ${styles.rightArrow}`}
+          onClick={this.handleNextImage}
+          icon={faAngleRight} />
       </div>
     );
   }
