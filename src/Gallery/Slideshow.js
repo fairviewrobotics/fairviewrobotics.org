@@ -45,9 +45,9 @@ export default class Slideshow extends Component {
 
   handleKeyDown = event => {
     if (event.key === 'ArrowLeft') {
-      return this.props.onNextImage();
-    } else if (event.key === 'ArrowRight') {
       return this.props.onPreviousImage();
+    } else if (event.key === 'ArrowRight') {
+      return this.props.onNextImage();
     } else if (event.key === 'Escape') {
       return this.props.onExit();
     }
