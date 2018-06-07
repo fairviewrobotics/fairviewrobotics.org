@@ -1,6 +1,7 @@
 .aboutContainer {
   width: 65%;
-  margin-top: 30vw;
+  margin-top: 20px;
+  padding-top: 1em;
   margin-left: auto;
   margin-right: auto;
 }
@@ -44,6 +45,5 @@
 @media(max-width:768px) {
   .aboutContainer {
     width: 80% !important;
-    margin-top: 40vw !important;
   }
 }

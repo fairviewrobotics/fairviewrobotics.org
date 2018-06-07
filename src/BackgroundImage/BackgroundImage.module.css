@@ -1,39 +1,33 @@
-.imageParallax {
-  height: calc(100% + 100px);
+.imageContainer {
   width: 100%;
-  top: -100px;
-  position: fixed;
-  z-index: -1;
-  background: black 50% 0;
-  background-size: cover;
-  transition: background-image 1s, background-size 0s;
-  transition-delay: 2s;
-}
-
-.imageParallax.notFullscreen {
-  height: calc(25vw + 100px) !important;
+  position: relative;
+  height: 25vw;
 }
 
 .introMask {
   position: absolute;
-  width: 100%;
-  left: 0;
   top: 0;
-  height: 100%;
-  margin: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   background-color: rgba(255, 255, 255, 0.6);
 }
 
-.introMask.notFullscreen {
-  height: calc(25vw) !important;
+.imageParallax {
+  z-index: -1;
+  position: absolute;
+  top: -100px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: black 50% 0;
+  background-size: cover;
+  transition: background-image 1s ease-in;
+  transition-delay: 2s;
 }
 
-@media(max-width:768px) {
-  .imageParallax.notFullscreen {
-    height: calc(35vw + 100px) !important;
-  }
-
-  .introMask.notFullscreen {
-    height: calc(35vw) !important;
+@media (max-width: 768px) {
+  .imageContainer {
+    height: 35vw;
   }
 }
