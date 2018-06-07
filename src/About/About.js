@@ -11,7 +11,7 @@ import comp2017_11 from '../images/2017-comp/2017-comp-11.jpg';
 
 import build2017_5 from '../images/2017-build/2017-build-5.jpg';
 import build2017_2 from '../images/2017-build/2017-build-2.jpg';
-import BackgroundImage from "../BackgroundImage/BackgroundImage";
+import Page from "../Page/Page";
 
 // TODO: CHANGE TITLE
 
@@ -27,10 +27,10 @@ export default class About extends Component {
 
   render() {
     return (
-      <div>
-        <BackgroundImage src={backgroundImage}/>
-        <h1 className="page-title">About</h1>
-
+      <Page
+        backgroundSrc={backgroundImage}
+        title="About"
+      >
         <div className={styles.aboutContainer}>
           <img src={comp2017_20} style={{ marginTop: '-0.5vw' }} className={`${styles.image} ${styles.left}`} alt="the team at competition" />
           <h2 className={styles.header} style={{ marginTop: '-0.5vw' }}>TEAM OVERVIEW</h2>
@@ -80,7 +80,7 @@ export default class About extends Component {
             as a dedicated member of the team, we understand that people have other commitments, and it’s not essential
             to come to every meeting during the build season.</p>
         </div>
-      </div>
+      </Page>
     );
   }
 }

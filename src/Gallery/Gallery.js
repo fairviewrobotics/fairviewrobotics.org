@@ -4,9 +4,9 @@ import { Redirect, Route } from "react-router-dom";
 
 import GalleryContainer from "./GalleryContainer";
 import NotFound from "../NotFound/NotFound";
-import BackgroundImage from "../BackgroundImage/BackgroundImage";
 
 import intro5 from '../images/intro/5.jpg';
+import Page from "../Page/Page";
 
 export default class Gallery extends Component {
 
@@ -39,6 +39,7 @@ export default class Gallery extends Component {
           path={`${match.path}/:gallery?/:photoIndex?`}
           render={
             props => {
+              // TODO: refactor into a component
               const { gallery, photoIndex } = props.match.params;
               
               if (!gallery) {
@@ -60,18 +61,18 @@ export default class Gallery extends Component {
               }
 
               return (
-                <Fragment>
-                  <BackgroundImage src={intro5}/>
-                  <h1 className="page-title">gallery</h1>
-                  <GalleryContainer
-                    {...props}
-                    baseGalleryUrl={match.path}
-                    createGalleryUrl={this.createGalleryUrl}
-                    galleryNames={galleryNames}
-                    currentGallery={galleryObject}
-                    currentImage={photoIndexNum}
-                  />
-                </Fragment>
+                <Page
+                  backgroundSrc={intro5}
+                  title="Gallery">
+                    <GalleryContainer
+                      {...props}
+                      baseGalleryUrl={match.path}
+                      createGalleryUrl={this.createGalleryUrl}
+                      galleryNames={galleryNames}
+                      currentGallery={galleryObject}
+                      currentImage={photoIndexNum}
+                    />
+                </Page>
               );
             }
           }

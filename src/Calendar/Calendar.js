@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react';
-import BackgroundImage from "../BackgroundImage/BackgroundImage";
 import { Clearfix, Grid } from "react-bootstrap";
 
 import styles from './Calendar.module.css';
 
 import intro6 from '../images/intro/6.jpg';
+import Page from "../Page/Page";
 
 export default class Calendar extends PureComponent {
 
@@ -14,9 +14,10 @@ export default class Calendar extends PureComponent {
 
   render() {
     return (
-      <div>
-        <BackgroundImage src={intro6}/>
-        <h1 className="page-title">Calendar</h1>
+      <Page
+        backgroundSrc={intro6}
+        title="Calendar"
+      >
         <div className={styles.calendarBody}>
           <Grid bsClass="container" className={styles.calendarContainer}>
             <h2 className={styles.header}>Upcoming Events</h2>
@@ -46,7 +47,7 @@ export default class Calendar extends PureComponent {
             </Clearfix>
           </Grid>
         </div>
-      </div>
+      </Page>
     );
   }
 }
