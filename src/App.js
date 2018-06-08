@@ -12,27 +12,8 @@ import Calendar from "./Calendar/Calendar";
 import Sponsors from "./Sponsors/Sponsors";
 import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
 
-import { galleries, sponsors } from "./constants";
+import { galleries, sponsorItems, weAreItems } from "./constants";
 import Gallery from "./Gallery/Gallery";
-
-// TODO move into constants
-function importAll(r) {
-  return r.keys().map(r);
-}
-
-const homePageImages = importAll(require.context('./images/we-are/', false, /\.(png|jpe?g|svg)$/));
-
-const weAreItems = homePageImages.map(src => ( {
-  src,
-  name: src.split('.')[0].split('/').slice(-1)[0]
-} ));
-
-const sponsorImages = importAll(require.context('./images/sponsors/', false, /\.(png|jpe?g|svg)$/));
-
-const sponsorItems = sponsors.map(sponsor => ( {
-  ...sponsor,
-  src: sponsorImages.find(image => image.includes(sponsor.name))
-} ));
 
 class App extends Component {
 

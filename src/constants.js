@@ -1,5 +1,16 @@
+function importAll(r) {
+  return r.keys().map(r);
+}
+
+const homePageImages = importAll(require.context('./images/we-are/', false, /\.(png|jpe?g|svg)$/));
+
+export const weAreItems = homePageImages.map(src => ( {
+  src,
+  name: src.split('.')[0].split('/').slice(-1)[0]
+}));
+
 // Sizes values are out of 100
-export const sponsors = [
+const sponsors = [
   {
     name: 'Medtronic',
     size: 60,
@@ -62,11 +73,14 @@ export const sponsors = [
   }
 ];
 
-// TODO: run before build so user doesn't have to do it
+const sponsorImages = importAll(require.context('./images/sponsors/', false, /\.(png|jpe?g|svg)$/));
 
-function importAll(r) {
-  return r.keys().map(r);
-}
+export const sponsorItems = sponsors.map(sponsor => ( {
+  ...sponsor,
+  src: sponsorImages.find(image => image.includes(sponsor.name))
+} ));
+
+// TODO: run before build so user doesn't have to do it
 
 const importPhotoGallery = (images, thumbnailImages) => {
   return images.map((image, index) => {
