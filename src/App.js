@@ -15,6 +15,8 @@ import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
 import { galleries, sponsorItems, weAreItems } from "./constants";
 import Gallery from "./Gallery/Gallery";
 
+import styles from './App.module.css';
+
 class App extends Component {
 
   static propTypes = {
@@ -45,23 +47,27 @@ class App extends Component {
     return (
       <BrowserRouter>
         <ErrorBoundary>
-          <RouteChange onRouteChange={this.handleRouteChange}/>
+          <div className={styles.container}>
+            <RouteChange onRouteChange={this.handleRouteChange}/>
 
-          <Header isCollapsed={!this.state.isMainPage}/>
+            <Header isCollapsed={!this.state.isMainPage}/>
 
-          <ErrorBoundary>
-            <Switch>
-              <Route exact path="/" render={() => <Home shuffle weAreItems={weAreItems}/>}/>
-              <Route exact path="/about" component={About}/>
-              <Route exact path="/sponsors" render={() => <Sponsors sponsors={sponsorItems}/>}/>
-              <Route path="/gallery" render={routeProps => <Gallery {...routeProps} galleries={galleries}/>}/>
-              <Route exact path="/calendar" component={Calendar}/>
+            <div className={styles.content}>
+              <ErrorBoundary>
+                <Switch>
+                  <Route exact path="/" render={() => <Home shuffle weAreItems={weAreItems}/>}/>
+                  <Route exact path="/about" component={About}/>
+                  <Route exact path="/sponsors" render={() => <Sponsors sponsors={sponsorItems}/>}/>
+                  <Route path="/gallery" render={routeProps => <Gallery {...routeProps} galleries={galleries}/>}/>
+                  <Route exact path="/calendar" component={Calendar}/>
 
-              <Route component={NotFound}/>
-            </Switch>
-          </ErrorBoundary>
+                  <Route component={NotFound}/>
+                </Switch>
+              </ErrorBoundary>
+            </div>
 
-          <Footer fixed={this.state.isMainPage} socialMedia={this.props.socialMedia}/>
+            <Footer fixed={this.state.isMainPage} socialMedia={this.props.socialMedia}/>
+          </div>
         </ErrorBoundary>
       </BrowserRouter>
     );
