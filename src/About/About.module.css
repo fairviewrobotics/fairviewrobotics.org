@@ -24,26 +24,34 @@
 }
 
 .image {
-  width: 25vw;
+  display: block;
+  width: 100%;
   height: auto;
-  clear: both;
   margin: 0;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
-}
-
-.image.left {
-  float: left;
-  margin-right: 2em;
-  clear: left;
-}
-
-.image.right {
-  float: right;
-  margin-left: 2em;
 }
 
 @media(max-width:768px) {
   .aboutContainer {
     width: 80% !important;
+  }
+}
+
+@media(min-width: 768px) {
+  .image {
+    display: inline;
+    clear: both;
+    width: 25vw;
+  }
+
+  .image.left {
+    float: left;
+    margin-right: 2em;
+    clear: left;
+  }
+
+  .image.right {
+    float: right;
+    margin-left: 2em;
   }
 }
