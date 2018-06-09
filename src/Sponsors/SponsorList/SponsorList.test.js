@@ -1,5 +1,4 @@
 import React from "react";
-import * as ReactDOM from "react-dom";
 import { shallow } from "enzyme";
 
 import SponsorList from "./SponsorList";
@@ -10,11 +9,7 @@ describe('SponsorList', () => {
   it("renders without crashing", () => {
     const sponsors = [];
 
-    const div = document.createElement("div");
-    ReactDOM.render(
-      <SponsorList sponsors={sponsors}/>,
-      div
-    );
+    shallow(<SponsorList sponsors={sponsors}/>);
   });
 
   describe('when given no `sponsors`', () => {
