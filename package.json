@@ -27,6 +27,10 @@
   },
   "devDependencies": {
     "del-cli": "^1.1.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.4",
+    "react-test-renderer": "^16.4.0",
     "rimraf": "^2.6.2",
     "surge": "latest"
   }
