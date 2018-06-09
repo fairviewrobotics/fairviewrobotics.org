@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sponsor given a sponsor should render a clickable image 1`] = `
+<a
+  className="sponsor"
+  href="urltosponsor.com"
+  target="_blank"
+>
+  <img
+    alt="Jason"
+    className="image"
+    src="imageurlforsponsor"
+    style={
+      Object {
+        "width": "45vw",
+      }
+    }
+  />
+</a>
+`;
