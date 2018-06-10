@@ -1,5 +1,8 @@
 # fairviewrobotics.org
 
+[![Build Status](https://travis-ci.org/fairviewrobotics/fairviewrobotics.org.svg?branch=master)](https://travis-ci.org/fairviewrobotics/fairviewrobotics.org)
+[![Coverage Status](https://coveralls.io/repos/github/fairviewrobotics/fairviewrobotics.org/badge.svg?branch=master)](https://coveralls.io/github/fairviewrobotics/fairviewrobotics.org?branch=master)
+
 ## Description
 
 This repo holds every associated with [http://fairviewrobotics.org/](http://fairviewrobotics.org/)
