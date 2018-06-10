@@ -24,9 +24,11 @@
     "build": "react-scripts build && del './build/static/**/*.map' && mv ./build/index.html ./build/200.html",
     "test": "react-scripts test --env=jsdom",
     "test:cov": "npm test -- --coverage",
+    "coverage": "npm run test:cov && cat ./coverage/lcov.info | coveralls",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "coveralls": "^3.0.1",
     "del-cli": "^1.1.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
