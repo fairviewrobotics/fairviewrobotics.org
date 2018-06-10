@@ -11,7 +11,11 @@ export default class Footer extends PureComponent {
       url: PropTypes.string.isRequired,
       icon: PropTypes.object.isRequired
     })).isRequired,
-    fixed: PropTypes.bool.isRequired
+    fixed: PropTypes.bool
+  };
+
+  static defaultProps = {
+    fixed: false
   };
 
   render() {
