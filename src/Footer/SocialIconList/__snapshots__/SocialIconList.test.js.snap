@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SocialIconList given a list of \`socialMedia\` should render a list of social media icons 1`] = `
+<div
+  className="socialMediaList"
+>
+  <SocialIcon
+    icon={
+      Object {
+        "name": "githubIcon",
+      }
+    }
+    key="http://github.com"
+    url="http://github.com"
+  />
+  <SocialIcon
+    icon={
+      Object {
+        "name": "facebookIcon",
+      }
+    }
+    key="http://facebook.com"
+    url="http://facebook.com"
+  />
+  <SocialIcon
+    icon={
+      Object {
+        "name": "twitterIcon",
+      }
+    }
+    key="http://twitter.com"
+    url="http://twitter.com"
+  />
+</div>
+`;
