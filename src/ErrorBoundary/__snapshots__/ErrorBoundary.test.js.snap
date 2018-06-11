@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorBoundary when a child component crashes renders a error message to the user 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="errorMessage"
+  >
+    <h1>
+      Something went wrong!
+    </h1>
+    <p>
+      Try refreshing the browser.
+    </p>
+  </div>
+</div>
+`;
+
+exports[`ErrorBoundary when the children work as intended renders the children 1`] = `
+<div>
+  <h1>
+    Page Name
+  </h1>
+  <p>
+    Robots are cool!
+  </p>
+</div>
+`;
