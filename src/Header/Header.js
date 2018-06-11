@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 // This helps link 'react-router-dom' and 'react-bootstrap' together to make links work
 import { LinkContainer } from "react-router-bootstrap";
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import { faBars } from "@fortawesome/fontawesome-free-solid/shakable.es";
+import { faBars } from "@fortawesome/fontawesome-free-solid";
 
 import styles from './Header.module.css';
 
