@@ -9,7 +9,7 @@
     "@fortawesome/react-fontawesome": "0.0.20",
     "array-shuffle": "^1.0.1",
     "bootstrap": "3.3.7",
-    "custom-react-scripts": "^0.2.2",
+    "react-scripts": "2.0.0-next.66cc7a90",
     "no-scroll": "^2.1.1",
     "prop-types": "latest",
     "react": "^16.3.2",
@@ -37,5 +37,18 @@
     "react-test-renderer": "^16.4.0",
     "rimraf": "^2.6.2",
     "surge": "latest"
+  },
+  "browserslist": {
+    "development": [
+      "last 2 chrome versions",
+      "last 2 firefox versions",
+      "last 2 edge versions"
+    ],
+    "production": [
+      ">1%",
+      "last 4 versions",
+      "Firefox ESR",
+      "not ie < 11"
+    ]
   }
 }
