@@ -11,7 +11,7 @@ exports[`Header renders a navbar with links and logo 1`] = `
     <NavbarBrand>
       <NavLink
         activeClassName="active"
-        ariaCurrent="true"
+        aria-current="page"
         to="/"
       >
         <img
