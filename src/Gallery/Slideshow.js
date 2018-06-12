@@ -75,7 +75,7 @@ export default class Slideshow extends Component {
   render() {
     return (
       <div className={styles.slideshowFullOuter} onClick={this.props.onExit}>
-        <a className={styles.imageClose} onClick={this.props.onExit}>close</a>
+        <button className={styles.imageClose} onClick={this.props.onExit}>close</button>
         <FontAwesomeIcon
           className={`${styles.fullArrow} ${styles.leftArrow}`}
           onClick={this.handlePreviousImage}
