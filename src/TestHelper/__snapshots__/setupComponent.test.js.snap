@@ -1,5 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`setupComponent given \`elementsToFind\` returns the element 1`] = `
+<div
+  className="coolClass"
+>
+  cool is what I am
+</div>
+`;
+
 exports[`setupComponent mount constructs a mount component 1`] = `
 <div>
   <h1>

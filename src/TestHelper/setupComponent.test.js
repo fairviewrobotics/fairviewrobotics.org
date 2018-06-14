@@ -22,12 +22,26 @@ class ParentComponent extends Component {
   }
 }
 
+class MultiItems extends Component {
+  render() {
+    return (
+      <div>
+        <h1>h1</h1>
+        <h2>hello world</h2>
+        <div className="coolClass">
+          cool is what I am
+        </div>
+      </div>
+    );
+  }
+}
+
 describe('setupComponent', () => {
   describe('shallow', () => {
     let shallow;
 
     beforeEach(() => {
-      const { shallow: testShallow } = setupComponent(TestComponent, {
+      const { shallow: testShallow } = setupComponent(TestComponent, [], {
         coolTitle: 'i am a default prop'
       });
 
@@ -51,7 +65,7 @@ describe('setupComponent', () => {
     let mount;
 
     beforeEach(() => {
-      const { mount: testMount } = setupComponent(ParentComponent, {
+      const { mount: testMount } = setupComponent(ParentComponent, [], {
         title: 'default title',
         data: 'default data'
       });
@@ -69,6 +83,25 @@ describe('setupComponent', () => {
         data: 'overridden data'
       });
       expect(wrapper).toMatchSnapshot();
+    });
+  });
+
+  describe('given `elementsToFind`', () => {
+    let shallow;
+
+    beforeEach(() => {
+      const { shallow: testShallow } = setupComponent(MultiItems, [
+        {
+          name: 'coolClass',
+          query: '.coolClass'
+        }
+      ]);
+
+      shallow = testShallow;
+    });
+
+    it('returns the element', () => {
+      expect(shallow().coolClass).toMatchSnapshot();
     });
   });
 });
