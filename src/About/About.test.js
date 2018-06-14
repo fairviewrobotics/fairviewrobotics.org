@@ -1,16 +1,16 @@
 import React from "react";
-import { shallow } from "enzyme";
 import About from "./About";
 import Page from "../Page/Page";
+import setupComponent from "../TestHelper/setupComponent";
 
-const setup = (props = {}) => {
-  const defaultProps = {};
-  const finalProps = {...defaultProps, ...props};
-
-  const wrapper = shallow(<About {...finalProps} />);
-
-  return { wrapper };
-};
+const { shallow: setup } = setupComponent(About,
+  [
+    {
+      name: 'page',
+      query: Page
+    }
+  ]
+);
 
 describe('About', () => {
   it('renders without crashing', () => {
@@ -18,8 +18,8 @@ describe('About', () => {
   });
 
   it('renders an about page', () => {
-    const { wrapper } = setup();
+    const { page } = setup();
 
-    expect(wrapper.find(Page)).toExist();
+    expect(page).toExist();
   });
 });
