@@ -1,16 +1,9 @@
 import React, { Component } from "react";
 import { mount, shallow } from "enzyme";
 import ErrorBoundary from "./ErrorBoundary";
+import setupComponent from "../TestHelper/setupComponent";
 
-const setup = props => {
-  const defaultProps = {};
-  const finalProps = {...defaultProps, ...props};
-
-  const wrapper = shallow(
-    <ErrorBoundary {...finalProps} />
-  );
-  return { wrapper: wrapper }
-};
+const { shallow: setup } = setupComponent(ErrorBoundary);
 
 describe('ErrorBoundary', () => {
   let wrapper;
