@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BackgroundImage when \`animate\` renders the background image with a transition \`delay\` 1`] = `"500ms"`;
+
+exports[`BackgroundImage when \`animate\` renders the background image with a transition with a \`duration\` 1`] = `"background-image 1000ms, background-size 0s"`;
+
+exports[`BackgroundImage when given a \`src\` renders an element with a background of \`src\` 1`] = `
+<div
+  className="imageContainer"
+>
+  <React.Fragment>
+    <div
+      className="introMask"
+    />
+    <div
+      className="imageParallax"
+      style={
+        Object {
+          "backgroundImage": "url(whackyMeme.jpg)",
+        }
+      }
+    />
+  </React.Fragment>
+</div>
+`;
