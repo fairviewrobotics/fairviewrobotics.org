@@ -1,20 +1,18 @@
 import React from "react";
-import { shallow } from "enzyme";
 import BackgroundImage from "./BackgroundImage";
+import setupComponent from "../TestHelper/setupComponent";
 
-const setup = (props = {}) => {
-  const defaultProps = {
+const { shallow: setup } = setupComponent(BackgroundImage,
+  [
+    {
+      name: 'imageParallax',
+      query: '.imageParallax'
+    }
+  ],
+  {
     src: 'http://urltoimage.com/image.jpg'
-  };
-  const finalProps = {...defaultProps, ...props};
-
-  const wrapper = shallow(<BackgroundImage {...finalProps} />);
-
-  return {
-    wrapper,
-    imageParallax: wrapper.find('.imageParallax')
-  };
-};
+  }
+);
 
 describe('BackgroundImage', () => {
   it('renders without crashing', () => {
