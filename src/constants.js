@@ -9,6 +9,7 @@ export const weAreItems = homePageImages.map(src => ( {
   name: src.split('.')[0].split('/').slice(-1)[0]
 }));
 
+// Note Name corresponds to image name (.png) in the images/sponsors folder
 // Sizes values are out of 100
 const sponsors = [
   {
@@ -17,14 +18,14 @@ const sponsors = [
     url: 'http://medtronic.com'
   },
   {
+    name: 'CoorsTek',
+    size: 60,
+    url: 'https://www.coorstek.com/'
+  },
+  {
     name: 'BlueCanyon',
     size: 30,
     url: 'http://bluecanyontech.com/'
-  },
-  {
-    name: 'Google',
-    size: 40,
-    url: 'https://www.google.com/'
   },
   {
     name: 'Sketchup',
@@ -43,17 +44,12 @@ const sponsors = [
   },
   {
     name: 'Madwire',
-    size: 20,
+    size: 30,
     url: 'https://www.madwire.com/'
   },
   {
-    name: 'NeyaSystems',
-    size: 20,
-    url: 'http://neyasystems.com/'
-  },
-  {
     name: 'Spire',
-    size: 20,
+    size: 30,
     url: 'https://spire.com/'
   },
   {
@@ -73,11 +69,17 @@ const sponsors = [
   }
 ];
 
-const sponsorImages = importAll(require.context('./images/sponsors/', false, /\.(png|jpe?g|svg)$/));
+const mapCompiledToRealName = (requiredContext) => {
+  const keys = requiredContext.keys();
+  const values = keys.map(requiredContext);
+  return keys.reduce((o, k, i) => { o[k] = values[i]; return o; }, {});
+}
+
+const sponsorImages = mapCompiledToRealName(require.context('./images/sponsors/', false, /\.(png|jpe?g|svg)$/));
 
 export const sponsorItems = sponsors.map(sponsor => ( {
   ...sponsor,
-  src: sponsorImages.find(image => image.includes(sponsor.name))
+  src: sponsorImages[Object.keys(sponsorImages).find(image => image.includes(sponsor.name))]
 } ));
 
 // TODO: run before build so user doesn't have to do it
