@@ -69,13 +69,13 @@ exports[`Header renders a navbar with links and logo 1`] = `
         exact={false}
         replace={false}
         strict={false}
-        to="/sponsors"
+        to="/supporters"
       >
         <NavItem
           active={false}
           disabled={false}
         >
-          Sponsors
+          Supporters
         </NavItem>
       </LinkContainer>
       <LinkContainer

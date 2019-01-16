@@ -3,7 +3,7 @@
 exports[`Sponsors given \`sponsors\` should render a page with a list of sponsors 1`] = `
 <Page
   backgroundSrc="11.jpg"
-  title="sponsors"
+  title="Supporters"
 >
   <SponsorList
     sponsors={
