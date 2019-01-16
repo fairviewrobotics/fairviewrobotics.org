@@ -24,7 +24,7 @@ export default class Sponsors extends PureComponent {
     return (
       <Page
         backgroundSrc={intro11}
-        title="sponsors"
+        title="Supporters"
       >
         <SponsorList sponsors={this.props.sponsors}/>
       </Page>

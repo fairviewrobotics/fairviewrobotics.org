@@ -57,7 +57,7 @@ class App extends Component {
                 <Switch>
                   <Route exact path="/" render={() => <Home shuffle weAreItems={weAreItems}/>}/>
                   <Route exact path="/about" component={About}/>
-                  <Route exact path="/sponsors" render={() => <Sponsors sponsors={sponsorItems}/>}/>
+                  <Route exact path="/supporters" render={() => <Sponsors sponsors={sponsorItems}/>}/>
                   <Route path="/gallery" render={routeProps => <Gallery {...routeProps} galleries={galleries}/>}/>
                   <Route exact path="/calendar" component={Calendar}/>
 
