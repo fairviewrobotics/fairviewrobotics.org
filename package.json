@@ -24,9 +24,6 @@
     "start": "react-scripts start",
     "prebuild": "rimraf build",
     "build": "react-scripts build && del './build/static/**/*.map' && mv ./build/index.html ./build/200.html",
-    "test": "react-scripts test --env=jsdom",
-    "test:cov": "npm test -- --coverage",
-    "coverage": "npm run test:cov && cat ./coverage/lcov.info | coveralls",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
