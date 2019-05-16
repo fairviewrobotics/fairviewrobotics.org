@@ -1,25 +1,23 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Navbar as BSNavBar, Nav, NavItem } from 'react-bootstrap';
 import * as bootstrapUtils from "react-bootstrap/lib/utils/bootstrapUtils";
 import { NavLink } from 'react-router-dom';
 // This helps link 'react-router-dom' and 'react-bootstrap' together to make links work
 import { LinkContainer } from "react-router-bootstrap";
-import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import { faBars } from "@fortawesome/fontawesome-free-solid";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 import styles from './Header.module.css';
-
 import logo from '../images/logo.png';
+
+export type HeaderProps = {
+  isCollapsed: boolean;
+}
 
 // This remove the default styling from 'react-bootstrap' for the Navbar
 bootstrapUtils.addStyle(BSNavBar, 'none');
 
-class Header extends Component {
-
-  static propTypes = {
-    isCollapsed: PropTypes.bool.isRequired
-  };
+class Header extends Component<HeaderProps> {
 
   render() {
     const collapsedStyling = this.props.isCollapsed ? styles.topNavCollapse : null;

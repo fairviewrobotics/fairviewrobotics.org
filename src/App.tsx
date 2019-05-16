@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from "prop-types";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import RouteChange from "./RouteChange";
@@ -17,20 +16,17 @@ import Gallery from "./Gallery/Gallery";
 
 import styles from './App.module.css';
 
-class App extends Component {
+export type AppProps = {
+  socialMedia: { url: string, icon: any }[]
+}
 
-  static propTypes = {
-    socialMedia: PropTypes.arrayOf(PropTypes.shape({
-      url: PropTypes.string.isRequired,
-      icon: PropTypes.object.isRequired
-    })).isRequired
-  };
+class App extends Component<AppProps> {
 
   state = {
     isMainPage: true
   };
 
-  handleRouteChange = ({ pathname }) => {
+  handleRouteChange = ({ pathname }: { pathname: string }) => {
     // TODO: simpfly to pathname !== '/', but fix not found page
     if (this.state.isMainPage && (
       pathname === '/about' ||

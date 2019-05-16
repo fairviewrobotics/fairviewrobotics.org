@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import { faAngleLeft, faAngleRight } from "@fortawesome/fontawesome-free-solid/shakable.es";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 import styles from './Slideshow.module.css';
 
-export default class Slideshow extends Component {
+export type SlideshowProps = {
+  src: string;
+  alt: string;
+  onPreviousImage: () => any;
+  onNextImage: () => any;
+  onExit: () => any;
+}
 
-  static propTypes = {
-    src: PropTypes.string.isRequired,
-    alt: PropTypes.string.isRequired,
-    onPreviousImage: PropTypes.func.isRequired,
-    onNextImage: PropTypes.func.isRequired,
-    onExit: PropTypes.func.isRequired
-  };
+export default class Slideshow extends Component<SlideshowProps> {
 
   componentDidMount() {
     document.addEventListener('keydown', this.handleKeyDown);
@@ -27,7 +26,7 @@ export default class Slideshow extends Component {
     isLoaded: false
   };
 
-  preLoad = imageElement => {
+  preLoad = (imageElement: HTMLImageElement) => {
     if (!imageElement) {
       return;
     }
@@ -43,7 +42,7 @@ export default class Slideshow extends Component {
     }
   };
 
-  handleKeyDown = event => {
+  handleKeyDown = (event: KeyboardEvent) => {
     if (event.key === 'ArrowLeft') {
       return this.props.onPreviousImage();
     } else if (event.key === 'ArrowRight') {
@@ -53,33 +52,34 @@ export default class Slideshow extends Component {
     }
   };
 
-  handlePreviousImage = event => {
+  handlePreviousImage = (event: React.MouseEvent<HTMLElement>) => {
     this.preventExit(event);
     this.props.onPreviousImage();
   };
 
-  handleNextImage = event => {
+  handleNextImage = (event: React.MouseEvent<HTMLElement>) => {
     this.preventExit(event);
     this.props.onNextImage();
   };
 
-  redirectToImage = event => {
+  redirectToImage = (event: React.MouseEvent<HTMLElement>) => {
     this.preventExit(event);
-    window.location = this.props.src;
+    window.location.href = this.props.src;
   };
 
   // This stops the click command on anything but the background from triggering #image-full-outer's onClick event, which exits
-  preventExit = event =>
+  preventExit = (event: React.MouseEvent<HTMLElement>) =>
     event.stopPropagation();
 
   render() {
     return (
       <div className={styles.slideshowFullOuter} onClick={this.props.onExit}>
         <button className={styles.imageClose} onClick={this.props.onExit}>close</button>
-        <FontAwesomeIcon
-          className={`${styles.fullArrow} ${styles.leftArrow}`}
-          onClick={this.handlePreviousImage}
-          icon={faAngleLeft}/>
+        <div onClick={this.handlePreviousImage}>
+          <FontAwesomeIcon
+            className={`${styles.fullArrow} ${styles.leftArrow}`}
+            icon={faAngleLeft}/>
+        </div>
         {
           !this.state.isLoaded &&
           <div className={styles.loadingText}>
@@ -93,10 +93,11 @@ export default class Slideshow extends Component {
           alt={this.props.alt}
           ref={this.preLoad}
         />
-        <FontAwesomeIcon
-          className={`${styles.fullArrow} ${styles.rightArrow}`}
-          onClick={this.handleNextImage}
-          icon={faAngleRight} />
+        <div onClick={this.handleNextImage}>
+          <FontAwesomeIcon
+            className={`${styles.fullArrow} ${styles.rightArrow}`}
+            icon={faAngleRight} />
+        </div>
       </div>
     );
   }

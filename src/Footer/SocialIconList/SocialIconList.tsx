@@ -1,18 +1,13 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 import SocialIcon from "./SocialIcon";
 
 import styles from './SocialIconList.module.css';
 
-export default class SocialIconList extends PureComponent {
+export type SocialIconListProps = {
+  socialMedia: { url: string, icon: any }[];
+}
 
-  static propTypes = {
-    socialMedia: PropTypes.arrayOf(PropTypes.shape({
-      url: PropTypes.string.isRequired,
-      icon: PropTypes.object.isRequired
-    })).isRequired
-  };
-
+export default class SocialIconList extends PureComponent<SocialIconListProps> {
   render() {
     return (
       <div className={styles.socialMediaList}>

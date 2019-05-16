@@ -1,9 +1,7 @@
 import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
-
 import styles from './BackgroundImage.module.css';
 
-const BackgroundImage = ({ src, fullScreen, animate }) => {
+const BackgroundImage = ({ src, fullScreen, animate }: { src: string, fullScreen: boolean, animate?: { duration: number, delay: number } }) => {
   const imageStyle = {
     backgroundImage: `url(${src})`
   };
@@ -34,15 +32,6 @@ const BackgroundImage = ({ src, fullScreen, animate }) => {
   }
 
   return backgroundImage;
-};
-
-BackgroundImage.propTypes = {
-  src: PropTypes.string.isRequired,
-  fullScreen: PropTypes.bool,
-  animate: PropTypes.shape({
-    duration: PropTypes.number.isRequired,
-    delay: PropTypes.number.isRequired
-  })
 };
 
 BackgroundImage.defaultProps = {

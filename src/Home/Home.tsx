@@ -1,22 +1,18 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import shuffle from 'array-shuffle';
 
 import styles from './Home.module.css';
 
 import BackgroundImage from "../BackgroundImage/BackgroundImage";
 
-export default class Home extends Component {
+export type HomeProps = {
+  weAreItems: { name: string, src: string }[];
+  shuffle: boolean;
+  timeActive: number;
+  timeToFade: number;
+}
 
-  static propTypes = {
-    weAreItems: PropTypes.arrayOf(PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      src: PropTypes.string.isRequired
-    })).isRequired,
-    shuffle: PropTypes.bool,
-    timeActive: PropTypes.number.isRequired,
-    timeToFade: PropTypes.number.isRequired
-  };
+export default class Home extends Component<HomeProps> {
 
   static defaultProps = {
     shuffle: false,
@@ -32,6 +28,10 @@ export default class Home extends Component {
     fadingIn: false
   };
 
+  private loopInterval: NodeJS.Timeout | null = null;
+  private fadeOutTimeout: NodeJS.Timeout | null = null;
+  private fadeInTimeout: NodeJS.Timeout | null = null;
+
   componentDidMount() {
     this.loopWeAre();
     // todo: implement document.documentElement.setProperty('--transition-time', this.state.textPos / 2);
@@ -39,19 +39,25 @@ export default class Home extends Component {
 
   componentWillUnmount() {
     // Removes all timers (this prevents memory leaks)
-    clearInterval(this.loopInterval);
-    clearTimeout(this.fadeOutTimeout);
-    clearTimeout(this.fadeInTimeout);
+    if (!!this.loopInterval) {
+      clearInterval(this.loopInterval);
+    }
+    if (!!this.fadeOutTimeout) {
+      clearTimeout(this.fadeOutTimeout);
+    }
+    if (!!this.fadeInTimeout) {
+      clearTimeout(this.fadeInTimeout);
+    }
   }
 
   loopWeAre = () => {
     this.loopInterval = setInterval(() => {
-      this.updateWeAre(this.state.items[this.state.textPos]);
+      this.updateWeAre();
 
     }, this.props.timeActive + this.props.timeToFade);
   };
 
-  getNextArrayPos(pos) {
+  getNextArrayPos(pos: number) {
     let nextPos = pos + 1;
 
     if (nextPos >= this.state.items.length) {

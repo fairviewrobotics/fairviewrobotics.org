@@ -8,7 +8,7 @@ import {
   faInstagram,
   faTwitter,
   faYoutube
-} from "@fortawesome/fontawesome-free-brands/shakable.es";
+} from "@fortawesome/free-brands-svg-icons";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';

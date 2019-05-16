@@ -1,49 +1,47 @@
 import React, { PureComponent, Fragment } from 'react';
-import PropTypes from 'prop-types';
 
 import GalleryThumbnails from "./GalleryThumbnails";
 import noScroll from "no-scroll";
 import Slideshow from "./Slideshow";
 
 import styles from './GalleryContainer.module.css';
-import { Link } from "react-router-dom";
+import { Link, RouteComponentProps } from "react-router-dom";
 
-export default class GalleryContainer extends PureComponent {
-
-  static propTypes = {
-    galleryNames: PropTypes.arrayOf(PropTypes.string).isRequired,
-    currentGallery: PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      images: PropTypes.arrayOf(PropTypes.shape({
-        src: PropTypes.string.isRequired,
-        thumbnail: PropTypes.string.isRequired
-      })).isRequired
-    }).isRequired,
-    baseGalleryUrl: PropTypes.string.isRequired,
-    createGalleryUrl: PropTypes.func.isRequired,
-    history: PropTypes.object.isRequired,
-    currentImage: PropTypes.number
+export type GalleryContainerProps = RouteComponentProps & {
+  galleryNames: string[];
+  currentGallery: {
+    name: string;
+    images: {
+      src: string;
+      thumbnail: string;
+    }[]
   };
+  baseGalleryUrl: string;
+  createGalleryUrl: (galleryName: string) => any;
+  currentImage: number | null;
+}
+
+export default class GalleryContainer extends PureComponent<GalleryContainerProps> {
 
   getGalleryUrl = (gallery = this.props.currentGallery.name) =>
     `${this.props.baseGalleryUrl}/${this.props.createGalleryUrl(gallery)}`;
 
-  getThumbnailUrl = index =>
+  getThumbnailUrl = (index: number) =>
     `${this.getGalleryUrl()}/${index}`;
 
-  handleGalleryClick = gallery =>
+  handleGalleryClick = (gallery: string) =>
     this.props.history.push(this.getGalleryUrl(gallery));
 
-  handleThumbnailClick = index =>
+  handleThumbnailClick = (index: number) =>
     this.props.history.push(this.getThumbnailUrl(index));
 
   handleImageExit = () =>
     this.props.history.push(this.getGalleryUrl());
 
-  getNextImage = (nextImage, currentPos = this.props.currentImage) => {
+  getNextImage = (nextImage: number, currentPos = this.props.currentImage): number => {
     const { images } = this.props.currentGallery;
 
-    const nextPos = nextImage + currentPos;
+    const nextPos = currentPos !== null ? nextImage + currentPos : 0;
 
     if (nextPos >= images.length) {
       return this.getNextImage(nextPos - images.length, 0);
@@ -105,7 +103,7 @@ export default class GalleryContainer extends PureComponent {
           <div className={styles.galleryContent}>
             <GalleryThumbnails
               galleryName={currentGallery.name}
-              baseLinkUrl={`${this.getGalleryUrl()}`}
+              baseLinkUrl={this.getGalleryUrl()}
               thumbnails={thumbnails}
             />
           </div>

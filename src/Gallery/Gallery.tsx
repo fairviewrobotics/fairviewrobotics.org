@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import PropTypes from "prop-types";
-import { Redirect, Route } from "react-router-dom";
+import { Redirect, Route, RouteComponentProps } from "react-router-dom";
 
 import GalleryContainer from "./GalleryContainer";
 import NotFound from "../NotFound/NotFound";
@@ -8,25 +7,22 @@ import NotFound from "../NotFound/NotFound";
 import intro5 from '../images/intro/5.jpg';
 import Page from "../Page/Page";
 
-export default class Gallery extends Component {
+export type GalleryProps = RouteComponentProps & {
+  galleries: {
+    name: string;
+    images: { src: string, thumbnail: string }[];
+  }[];
+}
 
-  static propTypes = {
-    galleries: PropTypes.arrayOf(PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      images: PropTypes.arrayOf(PropTypes.shape({
-        src: PropTypes.string.isRequired,
-        thumbnail: PropTypes.string.isRequired
-      })).isRequired
-    })).isRequired
-  };
+export default class Gallery extends Component<GalleryProps> {
 
   componentDidMount() {
     window.scrollTo(0, 0);
   }
 
-  createGalleryUrl = galleryName => galleryName.replace(/ /g, '-');
+  createGalleryUrl = (galleryName: string) => galleryName.replace(/ /g, '-');
 
-  parseGalleryUrl = galleryName => galleryName.replace(/-/g, ' ');
+  parseGalleryUrl = (galleryName: string) => galleryName.replace(/-/g, ' ');
 
   render() {
     const { match, galleries } = this.props;
@@ -53,8 +49,8 @@ export default class Gallery extends Component {
               const galleryObject = this.props.galleries.find(galleryItem => galleryItem.name ===  this.parseGalleryUrl(gallery));
               const photoIndexNum = photoIndex ? parseInt(photoIndex, 10) : null;
 
-              if (!galleryObject || (isNaN(photoIndexNum) && photoIndex !== null) ||
-                (galleryObject && (photoIndexNum < 0 || photoIndexNum >= galleryObject.images.length))
+              if (!galleryObject ||
+                (galleryObject && typeof photoIndexNum === 'number' && (photoIndexNum < 0 || photoIndexNum >= galleryObject.images.length))
               ) {
                 // TODO: use correct gallery notfound
                 return <NotFound/>

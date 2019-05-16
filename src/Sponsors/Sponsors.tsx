@@ -1,20 +1,19 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 import SponsorList from "./SponsorList/SponsorList";
 
 import intro11 from '../images/intro/11.jpg';
 import Page from "../Page/Page";
 
-export default class Sponsors extends PureComponent {
+export type SponsorsProps = {
+  sponsors: {
+    name: string;
+    size: number;
+    url: string;
+    src: string;
+  }[];
+}
 
-  static propTypes = {
-    sponsors: PropTypes.arrayOf(PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      size: PropTypes.number.isRequired,
-      url: PropTypes.string.isRequired,
-      src: PropTypes.string.isRequired
-    })).isRequired
-  };
+export default class Sponsors extends PureComponent<SponsorsProps> {
 
   componentDidMount() {
     window.scrollTo(0, 0);

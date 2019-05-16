@@ -1,16 +1,13 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 import BackgroundImage from "../BackgroundImage/BackgroundImage";
-
 import styles from './Page.module.css';
 
-export default class Page extends PureComponent {
+export type PageProps = {
+  backgroundSrc: string;
+  title: string;
+}
 
-  static propTypes = {
-    backgroundSrc: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired
-  };
-
+export default class Page extends PureComponent<PageProps> {
   render() {
     const {backgroundSrc, title, children} = this.props;
     return (

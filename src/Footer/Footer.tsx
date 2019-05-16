@@ -1,18 +1,14 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 import SocialIconList from "./SocialIconList/SocialIconList";
 
-import styles from './Footer.module.css'
+import styles from './Footer.module.css';
 
-export default class Footer extends PureComponent {
+export type FooterProps = {
+  socialMedia: { url: string, icon: any }[];
+  fixed: boolean;
+}
 
-  static propTypes = {
-    socialMedia: PropTypes.arrayOf(PropTypes.shape({
-      url: PropTypes.string.isRequired,
-      icon: PropTypes.object.isRequired
-    })).isRequired,
-    fixed: PropTypes.bool
-  };
+export default class Footer extends PureComponent<FooterProps> {
 
   static defaultProps = {
     fixed: false

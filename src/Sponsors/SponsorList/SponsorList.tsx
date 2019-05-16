@@ -1,20 +1,18 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 import Sponsor from "./Sponsor";
 
 import styles from './SponsorList.module.css';
 
-export default class SponsorList extends PureComponent {
+export type SponsorListProps = {
+  sponsors: {
+    name: string;
+    size: number;
+    url: string;
+    src: string;
+  }[];
+}
 
-  static propTypes = {
-    sponsors: PropTypes.arrayOf(PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      size: PropTypes.number.isRequired,
-      url: PropTypes.string.isRequired,
-      src: PropTypes.string.isRequired
-    })).isRequired
-  };
-
+export default class SponsorList extends PureComponent<SponsorListProps> {
   render() {
     return (
       <div className={styles.sponsorList}>

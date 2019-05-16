@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import { Clearfix, Grid } from "react-bootstrap";
 
 import styles from './Calendar.module.css';
-
 import intro6 from '../images/intro/6.jpg';
 import Page from "../Page/Page";
 
