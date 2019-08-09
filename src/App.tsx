@@ -9,6 +9,7 @@ import Home from "./Home/Home";
 import About from "./About/About";
 import Calendar from "./Calendar/Calendar";
 import Sponsors from "./Sponsors/Sponsors";
+import JoinUs from "./JoinUs/JoinUs";
 import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
 
 import { galleries, sponsorItems, weAreItems } from "./constants";
@@ -56,7 +57,7 @@ class App extends Component<AppProps> {
                   <Route exact path="/supporters" render={() => <Sponsors sponsors={sponsorItems}/>}/>
                   <Route path="/gallery" render={routeProps => <Gallery {...routeProps} galleries={galleries}/>}/>
                   <Route exact path="/calendar" component={Calendar}/>
-
+                  <Route exact path="/join-us" component={JoinUs}/>
                   <Route component={NotFound}/>
                 </Switch>
               </ErrorBoundary>

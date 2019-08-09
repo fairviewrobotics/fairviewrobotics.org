@@ -1,0 +1,65 @@
+.joinContainer {
+  width: 65%;
+  margin-top: 20px;
+  padding-top: 1em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.joinContainer > p {
+  font-weight: 100;
+  line-height: 1.6;
+}
+  
+.iframeForm {
+  display: none;
+}
+
+.success {
+  border: 1px solid #c1d689;
+  border-radius: 8px;
+  background: #cee298;
+  padding: 0.5rem;
+  margin: 1rem 0 1rem 0;
+
+  display: none;
+
+}
+
+.successShow {
+  display: block;
+}
+
+.success > p {
+  font-weight: 200;
+  line-height: 1.6;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="submit"],
+textarea {
+  margin: .5rem 0 1rem 0;
+  padding: 0.1rem;
+  border-radius: 3px;
+  border: 1px solid gray;
+}
+
+input[type="submit"] {
+  margin: 2rem 0 2rem 0;
+}
+
+textarea {
+  height: 8rem;
+}
+
+@media(max-width:768px) {
+  .joinContainer {
+    width: 80% !important;
+  }
+}

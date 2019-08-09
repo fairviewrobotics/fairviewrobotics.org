@@ -48,6 +48,9 @@ class Header extends Component<HeaderProps> {
             <LinkContainer to="/calendar">
               <NavItem>Calendar</NavItem>
             </LinkContainer>
+            <LinkContainer to="/join-us">
+              <NavItem>Join Us</NavItem>
+            </LinkContainer>
           </Nav>
         </BSNavBar.Collapse>
       </BSNavBar>
