@@ -43,7 +43,7 @@ export default class JoinUs extends Component<{}, JoinUsState> {
             <textarea name="entry.1549089651"></textarea>
             <input type="submit" value="Submit"></input>
           </form>
-          <iframe className={styles.iframeForm} name="iframe-form"></iframe>
+          <iframe className={styles.iframeForm} name="iframe-form" title="iframe-form"></iframe>
           </p>
         </div>
       </Page>
