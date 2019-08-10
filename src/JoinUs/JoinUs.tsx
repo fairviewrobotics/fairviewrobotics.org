@@ -12,6 +12,8 @@ interface JoinUsState {
 
 export default class JoinUs extends Component<{}, JoinUsState> {
 
+  formRef: HTMLFormElement | null = null;
+
   state = {
     successShow: false
   };
@@ -29,12 +31,23 @@ export default class JoinUs extends Component<{}, JoinUsState> {
         <div className={styles.joinContainer}>
           <p>The Black Knights are always happy to welcome new members. Fill out the form below, and we'll notify you when and where our first meeting will be.
             <div className={classNames(styles.success, this.state.successShow ? styles.successShow : undefined)}>Your response has been recorded</div>
-          <form target="iframe-form" action="https://docs.google.com/forms/d/e/1FAIpQLScq2QamP4j6q1vYnJB2Ayy6Z-tezB_fzecrZfTwqwN-4bTzaQ/formResponse" method="POST"     onSubmit={(e) => {
-            this.setState(() => { return {successShow: true}});
-            window.setTimeout(() => {
-              this.setState(() => {return {successShow: false}});
-            }, 3000);
-          }}>
+          <form 
+            target="iframe-form" 
+            action="https://docs.google.com/forms/d/e/1FAIpQLScq2QamP4j6q1vYnJB2Ayy6Z-tezB_fzecrZfTwqwN-4bTzaQ/formResponse" 
+            method="POST"
+            onSubmit={(e) => {
+              /* show success */
+              this.setState(() => { return {successShow: true}});
+              /* clear form */
+              if(this.formRef) {
+                this.formRef.reset();
+              }
+              window.setTimeout(() => {
+                this.setState(() => {return {successShow: false}});
+              }, 3000);
+            }} 
+            ref={(el) => {this.formRef = el;}}
+          >
             <label>Name*:</label>
             <input type="text" name="entry.622190766" required></input>
             <label>Email*:</label>
