@@ -8,6 +8,10 @@ import classNames from "classnames";
 
 interface JoinUsState {
   successShow: Boolean;
+
+  name: String;
+  email: String;
+  comments: String;
 }
 
 export default class JoinUs extends Component<{}, JoinUsState> {
@@ -15,7 +19,10 @@ export default class JoinUs extends Component<{}, JoinUsState> {
   formRef: HTMLFormElement | null = null;
 
   state = {
-    successShow: false
+    successShow: false,
+    name: "",
+    email: "",
+    comments: "",
   };
 
   componentDidMount () {
@@ -38,22 +45,37 @@ export default class JoinUs extends Component<{}, JoinUsState> {
             onSubmit={(e) => {
               /* show success */
               this.setState(() => { return {successShow: true}});
-              /* clear form */
-              if(this.formRef) {
-                this.formRef.reset();
-              }
               window.setTimeout(() => {
                 this.setState(() => {return {successShow: false}});
-              }, 3000);
+                /* we need to do this after the request is sent */
+                this.setState(() => {return {name: "", email: "", comments: ""}});
+              }, 2000);
             }} 
             ref={(el) => {this.formRef = el;}}
           >
             <label>Name*:</label>
-            <input type="text" name="entry.622190766" required></input>
+            <input 
+              value={this.state.name} 
+              type="text" 
+              name="entry.622190766" 
+              onChange={(e) => this.setState({name: e.target.value})} 
+              required>
+            </input>
             <label>Email*:</label>
-            <input type="email" name="entry.863521392" required></input>
+            <input 
+              value={this.state.email} 
+              type="email" 
+              name="entry.863521392" 
+              onChange={(e) => this.setState({email: e.target.value})} 
+              required>  
+            </input>
             <label>Anything else you'd like us to know?</label>
-            <textarea name="entry.1549089651"></textarea>
+            <textarea 
+              value={this.state.comments} 
+              name="entry.1549089651"
+              onChange={(e) => this.setState({comments: e.target.value})} 
+              >
+            </textarea>
             <input type="submit" value="Submit"></input>
           </form>
           <iframe className={styles.iframeForm} name="iframe-form" title="iframe-form"></iframe>
