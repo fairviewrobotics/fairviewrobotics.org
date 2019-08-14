@@ -74,6 +74,7 @@ export default class JoinUs extends Component<{}, JoinUsState> {
               value={this.state.comments} 
               name="entry.1549089651"
               onChange={(e) => this.setState({comments: e.target.value})} 
+              placeholder="Do you have any FIRST experience, interests, or anything else you'd like to tell us..."
               >
             </textarea>
             <input type="submit" value="Submit"></input>
