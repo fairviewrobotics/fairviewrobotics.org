@@ -83,6 +83,7 @@ export const sponsorItems = sponsors.map(sponsor => ( {
 } ));
 
 // TODO: run before build so user doesn't have to do it
+// TODO: create thumbnails on runtime so that there aren't unnecessary image duplicates
 
 const importPhotoGallery = (images, thumbnailImages) => {
   return images.map((image, index) => {
@@ -94,6 +95,11 @@ const importPhotoGallery = (images, thumbnailImages) => {
 };
 
 export const galleries = [
+  {
+    name: '2019 competition',
+    images: importPhotoGallery(importAll(require.context("./images/2019/", false, /\.(png|jpe?g|svg)$/)),
+      importAll(require.context("./images/2019/thumbnails/", false, /\.(png|jpe?g|svg)$/)))
+  },
   {
     name: '2018 competition',
     images: importPhotoGallery(importAll(require.context("./images/2018-comp/", false, /\.(png|jpe?g|svg)$/)),
