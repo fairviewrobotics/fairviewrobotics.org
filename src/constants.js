@@ -18,55 +18,25 @@ const sponsors = [
     url: 'http://medtronic.com'
   },
   {
-    name: 'CoorsTek',
-    size: 60,
-    url: 'https://www.coorstek.com/'
-  },
-  {
-    name: 'BlueCanyon',
-    size: 30,
-    url: 'http://bluecanyontech.com/'
-  },
-  {
-    name: 'Sketchup',
-    size: 40,
-    url: 'https://www.sketchup.com/'
-  },
-  {
     name: 'Ball',
-    size: 30,
+    size: 40,
     url: 'http://www.ball.com/aerospace'
   },
   {
-    name: 'Cosmos',
+    name: 'Premier Members Credit Union',
+    size: 40,
+    url: 'https://www.pmcu.org/'
+  },
+  {
+    name: 'Wong Orthodontics',
     size: 20,
-    url: 'http://cosmospizza.com/'
-  },
-  {
-    name: 'Madwire',
-    size: 30,
-    url: 'https://www.madwire.com/'
-  },
-  {
-    name: 'Spire',
-    size: 30,
-    url: 'https://spire.com/'
-  },
-  {
-    name: 'NIST',
-    size: 20,
-    url: 'http://www.nist.gov/'
+    url: 'https://drwongortho.com'
   },
   {
     name: 'McGuckin',
-    size: 20,
+    size: 15,
     url: 'https://www.mcguckin.com/'
   },
-  {
-    name: 'TheSink',
-    size: 15,
-    url: 'https://thesink.com/'
-  }
 ];
 
 const mapCompiledToRealName = (requiredContext) => {
