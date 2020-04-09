@@ -28,16 +28,7 @@ class App extends Component<AppProps> {
   };
 
   handleRouteChange = ({ pathname }: { pathname: string }) => {
-    // TODO: simpfly to pathname !== '/', but fix not found page
-    if (this.state.isMainPage && (
-      pathname === '/about' ||
-      pathname === '/sponsors' ||
-      pathname.startsWith('/gallery') ||
-      pathname === '/calendar' )) {
-      this.setState({ isMainPage: false });
-    } else if (!this.state.isMainPage && pathname === '/') {
-      this.setState({ isMainPage: true });
-    }
+    this.setState({ isMainPage: pathname === '/' })
   };
 
   render() {
