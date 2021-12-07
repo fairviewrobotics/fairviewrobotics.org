@@ -95,6 +95,16 @@ const importPhotoGallery = (images: any[], thumbnailImages: any[]) => {
 
 export const galleries = [
   {
+    name: '2020 building',
+    images: importPhotoGallery(importAll((require as any).context("./images/2020-build/", false, /\.(png|jpe?g|svg)$/)),
+      importAll((require as any).context("./images/2020-build/thumbnails/", false, /\.(png|jpe?g|svg)$/)))
+  },
+  {
+    name: '2019 competition',
+    images: importPhotoGallery(importAll((require as any).context("./images/2019/", false, /\.(png|jpe?g|svg)$/)),
+      importAll((require as any).context("./images/2019/thumbnails/", false, /\.(png|jpe?g|svg)$/)))
+  },
+  {
     name: '2018 competition',
     images: importPhotoGallery(importAll((require as any).context("./images/2018-comp/", false, /\.(png|jpe?g|svg)$/)),
       importAll((require as any).context("./images/2018-comp/thumbnails/", false, /\.(png|jpe?g|svg)$/)))

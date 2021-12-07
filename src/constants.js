@@ -15,12 +15,17 @@ const sponsors = [
   {
     name: 'Medtronic',
     size: 60,
-    url: 'http://medtronic.com'
+    url: 'https://medtronic.com'
   },
   {
     name: 'Ball',
-    size: 40,
-    url: 'http://www.ball.com/aerospace'
+    size: 35,
+    url: 'https://www.ball.com/aerospace'
+  },
+  {
+    name: "Plus One",
+    size: 35,
+    url: "https://plusonerobotics.com/"
   },
   {
     name: 'Premier Members Credit Union',
@@ -65,6 +70,11 @@ const importPhotoGallery = (images, thumbnailImages) => {
 };
 
 export const galleries = [
+  {
+    name: '2020 building',
+    images: importPhotoGallery(importAll(require.context("./images/2020-build/", false, /\.(png|jpe?g|svg)$/)),
+      importAll(require.context("./images/2020-build/thumbnails/", false, /\.(png|jpe?g|svg)$/)))
+  },
   {
     name: '2019 competition',
     images: importPhotoGallery(importAll(require.context("./images/2019/", false, /\.(png|jpe?g|svg)$/)),

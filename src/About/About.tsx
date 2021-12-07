@@ -34,7 +34,7 @@ export default class About extends Component {
         <div className={styles.aboutContainer}>
           <img src={comp2017_20} style={{ marginTop: '-0.5vw' }} className={`${styles.image} ${styles.left}`} alt="the team at competition" />
           <h2 className={styles.header} style={{ marginTop: '-0.5vw' }}>TEAM OVERVIEW</h2>
-          <p>We are Fairview Robotics, a high school robotics team from Fairview High School in Boulder, Colorado.
+          <p>We are Fairview Robotics, a high school robotics team from the <a href="https://boulderhackerspace.com/">Solid State Depot</a> and Fairview High School in Boulder, Colorado.
             Our robotics team consists of a group of motivated students that have a passion for robotics and STEM.
             Our team participates in the FIRST Robotics Competition (FRC), which gives us the opportunity to express
             ourselves

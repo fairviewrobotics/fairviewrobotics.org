@@ -28,7 +28,7 @@ class App extends Component<AppProps> {
   };
 
   handleRouteChange = ({ pathname }: { pathname: string }) => {
-    this.setState({ isMainPage: pathname === '/' })
+    this.setState({ isMainPage: pathname === '/' });
   };
 
   render() {
