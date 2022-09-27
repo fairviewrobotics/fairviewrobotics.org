@@ -29,7 +29,7 @@
   "scripts": {
     "start": "react-scripts start",
     "prebuild": "npx rimraf build",
-    "build": "react-scripts build && del './build/static/**/*.map'",
+    "build": "react-scripts build && del './build/static/**/*.map' && cp ./build/index.html ./build/200.html",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
