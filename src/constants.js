@@ -28,8 +28,18 @@ const sponsors = [
     url: "https://plusonerobotics.com/"
   },
   {
+    name: 'Comcast NBC Universal',
+    size: 45,
+    url: 'https://corporate.comcast.com/'
+  },
+  {
+    name: 'SHOTOVER',
+    size: 35,
+    url: 'https://shotover.com'
+  },
+  {
     name: 'Premier Members Credit Union',
-    size: 40,
+    size: 35,
     url: 'https://www.pmcu.org/'
   },
   {
